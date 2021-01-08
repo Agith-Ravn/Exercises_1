@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>onclick</title>
+    <style>
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        h2 {
+            text-align: center;
+
+        }
+
+        div {
+            padding: 3rem;
+            border-bottom: 50px;
+        }
+
+        .button {
+            display: block;
+            background-color: rgb(165, 228, 129);
+            width: 300px;
+            margin: auto;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .refresh {
+            display: block;
+            margin: auto;
+            position: relative;
+            bottom: 1rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        .border {
+            background-color: rgb(224, 224, 224);
+            max-width: 400px;
+            display: block;
+            margin: 2rem auto 2rem auto;
+            height: auto;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+      
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="border">  
+        <div>
+            <h2 id="custom_id1">2. Vil denne forandre seg</h2>
+            <h2 class="button" onclick="custom_name()">1. Når du klikker her</h2>
+        </div>
+        
+    <div>
+            <h2 id="custom_id2">2. Vil disse forandre seg</h2>
+            <h2 id="custom_id3">2. Vil disse forandre seg</h2>
+            <h2 id="custom_id4">2. Vil disse forandre seg</h2>
+            <h2 class="button" onclick="custom_name2()">1. Når du klikker her</h2>
+    </div>
+
+
+        <div>
+            <h2 id="custom_id5">x. Vil IKKE denne forandre seg</h2>
+            <h2 id="custom_id6">2. Vil denne forandre seg</h2>
+            <h2 id="custom_id7">x. Vil IKKE denne forandre seg</h2>
+            <h2 class="button" onclick="custom_name3()">1. Når du klikker her</h2>
+        </div>
+
+
+        <div>       
+            <form>
+                <input class="refresh" type="button" onclick="history.go(0)" value="Refresh">
+            </form>
+        </div>
+    </div>    
+
+    <script>
+        function custom_name() {
+            document.getElementById('custom_id1').innerHTML = '3.Til denne';
+        }
+
+        function custom_name2() {
+            document.getElementById('custom_id2').innerHTML = '3.Til denne';
+            document.getElementById('custom_id3').innerHTML = '3.Til denne';
+            document.getElementById('custom_id4').innerHTML = '3.Til denne';
+        }
+
+        function custom_name3() {
+            document.getElementById('custom_id6').innerHTML = '3. Til denne, kun nr 2 i raden vil forandre seg pga id';
+        }
+
+    </script>
+</body>
+</html>
+
