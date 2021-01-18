@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        #loremImpsum {
+            text-align: center;
+            width: 450px;
+            display: block;
+            margin: 3rem auto; 
+            padding: 1rem 1.5rem 2rem 1.5rem;
+            border-radius: 10px;
+            font-family:Arial, Helvetica, sans-serif;
+            line-height: 1.4;
+        }
+
+        #loremImpsum p {
+            text-align: justify;
+        }
+
+        .styleAll {
+            padding-top: 1rem;
+            width: 450px;
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            justify-content: space-between;
+        }
+
+        button {
+            width: 3.5rem;
+            height: 2rem;
+            border-radius: 5px;
+        }        
+
+        .knappStil5 {
+            background-color: black;
+            border: 10px solid grey;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 400px;
+            color: white;  
+            padding: 1rem;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    
+    <div id="loremImpsum">
+
+        <div id="tekst">
+            <h1> Lorem Ipsum </h1>
+            <h3> What is Lorem Ipsum? </h3>
+            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). </p>
+        </div>
+
+        <div class="styleAll">
+            <div class="style1">
+                <button onclick="brukeStil1(this)">Stil 1</button>
+            </div>
+    
+    
+            <div class="style2">
+                <button onclick="brukeStil2()">Stil 2</button>
+            </div>
+    
+    
+            <div class="style3">
+                <button onclick="brukeStil3()">Stil 3</button>
+            </div>
+            
+    
+            <div class="style4">
+                <button onclick="brukeStil4()">Stil 4</button>
+            </div>
+    
+    
+            <div class="style5">
+                <div>Stil 5</div>
+                <input id="stil5" type="checkbox" onchange="brukeStil5()">
+            </div>
+
+            <div class="style0">
+                <button onclick="brukeStil0()"> Ingen </button>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var tekst = document.getElementById("tekst")
+        var bakgrunn= document.getElementById('loremImpsum')
+
+        function brukeStil1() {    
+            if (tekst.classList.contains ('knappStil5')) {
+                tekst.classList.remove('knappStil5');
+            }
+            document.getElementById("stil5").checked = false;
+
+            bakgrunn.style.backgroundColor = 'lightgrey';
+            bakgrunn.style.border = '10px solid rgb(187, 187, 187)';
+            tekst.style.fontSize = '1rem';
+            bakgrunn.style.width = '450px';
+            tekst.style.color = 'black';
+        }
+
+        function brukeStil2() {
+            if (tekst.classList.contains ('knappStil5')) {
+                tekst.classList.remove('knappStil5');
+            }
+            document.getElementById("stil5").checked = false;
+
+            bakgrunn.style.backgroundColor = 'rgb(255, 74, 74)';
+            bakgrunn.style.border = '5px solid red';
+            tekst.style.fontSize = '1rem';
+            bakgrunn.style.width = '450px';
+            tekst.style.color = 'black';
+        }
+
+        function brukeStil3() {
+            if (tekst.classList.contains ('knappStil5')) {
+                tekst.classList.remove('knappStil5');
+            }
+            document.getElementById("stil5").checked = false;
+
+            bakgrunn.style.backgroundColor = 'pink';
+            bakgrunn.style.border = '15px solid palevioletred';
+            tekst.style.fontSize = '1rem';
+            bakgrunn.style.width = '450px';
+            tekst.style.color = 'black';
+        }
+
+        function brukeStil4() {
+            if (tekst.classList.contains ('knappStil5')) {
+                tekst.classList.remove('knappStil5');
+            }
+            document.getElementById("stil5").checked = false;
+
+            
+            
+            bakgrunn.style.backgroundColor = 'lightblue';
+            bakgrunn.style.border = '10px solid white';
+            tekst.style.fontSize = '1.2rem';
+            bakgrunn.style.width = '600px';
+            tekst.style.color = 'black';
+        }
+
+        function brukeStil5() {
+                bakgrunn.style.backgroundColor = '';
+                bakgrunn.style.border = '';
+                tekst.style.fontSize = '';
+                bakgrunn.style.width = '';
+                tekst.style.color = '';
+
+                var ErKrysset = document.getElementById('stil5').checked;
+                document.getElementById('tekst').classList.toggle('knappStil5');
+            }
+            
+
+        function brukeStil0() {
+            //tekst.classList.remove('knappStil5')
+            if (tekst.classList.contains ('knappStil5')) {
+                tekst.classList.remove('knappStil5');
+            }
+            document.getElementById("stil5").checked = false;
+
+            bakgrunn.style.backgroundColor = 'white';
+            bakgrunn.style.border = '10px solid white';
+            tekst.style.fontSize = '1rem';
+            bakgrunn.style.width = '450px';
+            tekst.style.color = 'black';
+
+
+        }
+
+    </script>
+</body>
+</html>

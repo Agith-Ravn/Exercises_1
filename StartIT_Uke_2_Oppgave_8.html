@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #knapp {
+            font-size: 1.5rem;
+            margin: 1vmin;
+        }
+
+        #squareDiv {
+            background-color: blue;
+            width: 30vmax;
+            height: 30vmax;
+            border-radius: 10px;
+            margin-top: 2vmin;
+        }        
+        
+    </style>
+</head>
+<body>
+    <button id="knapp" onclick="tasteTrykkFunksjon()">Tilfeldig lengde og bredde</button>
+    <div id="squareDiv"></div>
+
+   
+<script>   
+    var resultat = document.getElementById('squareDiv');
+
+    function tasteTrykkFunksjon(){
+        
+    var lengde = 100 + Math.floor(Math.random() * 500);
+    var bredde = 100 + Math.floor(Math.random() * 500);
+
+    resultat.style.width = bredde + "px";
+    resultat.style.height = lengde + "px";  
+    }
+    
+</script>
+</body>
+</html>
