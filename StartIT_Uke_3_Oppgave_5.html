@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      li {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      //MODEL
+      var infoDiv1 = "";
+      var infoDiv2 = "";
+      var infoDiv3 = "";
+
+      var txt1og2 = "Tekst 1 og 2 er like<br/>";
+      var txt1og2x = "<del>Tekst 1 og 2 er like</del><br/>";
+
+      var txt1og3 = "Tekst 1 og 3 er like<br/>";
+      var txt1og3x = "<del>Tekst 1 og 3 er like</del><br/>";
+
+      var txt2og3 = "Tekst 2 og 3 er like<br/>";
+      var txt2og3x = "<del>Tekst 2 og 3 er like</del><br/>";
+
+      let navn1 = "Per";
+      let navn2 = "Pål";
+      let navn3 = "Espen";
+
+      //VIEW
+      updateDate();
+      function updateDate() {
+        document.getElementById("app").innerHTML = `
+                <div> ${infoDiv1} </div>
+                <div> ${infoDiv2} </div>
+                <div> ${infoDiv3} </div>
+                                                  
+                <input type="text" id="txt1" oninput="oppdatereInfo()" value="${navn1}" /><br />
+                <input type="text" id="txt2" oninput="oppdatereInfo()" value="${navn2}" /><br />
+                <input type="text" id="txt3" oninput="oppdatereInfo()" value="${navn3}" /><br />
+
+                <p> <li> Mister fokus, Må skrive en og en bokstav. Hvordan løser man dette?</li>
+                <li> Hvorfor dukker ikke teksten opp før jeg skriver inn felt?</li>
+                </p>
+                  
+            `;
+      }
+
+      //CONTROLLER
+
+      //hente inputNavn
+      updateDate();
+      function oppdatereInfo() {
+        navn1 = document.getElementById("txt1").value; //du kan bruke this.value, men må lage 3 separerte funksjoner isåfall..
+        navn2 = document.getElementById("txt2").value;
+        navn3 = document.getElementById("txt3").value;
+
+        //Hvis navn er lik = message | Hvis ikke = message2
+        // 1 og 2
+        if (navn1 == navn2) {
+          infoDiv1 = txt1og2;
+          updateDate();
+        }
+        if (navn1 != navn2) {
+          infoDiv1 = txt1og2x;
+          updateDate();
+        }
+
+        //1 og 3
+        if (navn1 == navn3) {
+          infoDiv3 = txt1og3;
+          updateDate();
+        }
+        if (navn1 != navn3) {
+          infoDiv3 = txt1og3x;
+          updateDate();
+        }
+
+        // 2 og 3
+        if (navn2 == navn3) {
+          infoDiv2 = txt2og3;
+          updateDate();
+        }
+        if (navn2 != navn3) {
+          infoDiv2 = txt2og3x;
+          updateDate();
+        }
+
+        //Sortering - hvilken som skal være først.
+        /*if (navn1 <= navn2) {
+          if (navn3 <= navn1) infoDiv3 += navn3;
+        }*/
+      }
+
+    </script>
+  </body>
+</html>
