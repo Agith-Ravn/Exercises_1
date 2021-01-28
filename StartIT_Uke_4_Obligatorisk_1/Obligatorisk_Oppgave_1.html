@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        color: black;
+      }
+
+      #overskrift {
+        text-align: center;
+      }
+
+      .ramme {
+        text-align: center;
+        background-color: #5419ff;
+        display: block;
+        max-width: 500px;
+        margin: auto;
+        padding: 30px 0;
+        border-radius: 10px;
+      }
+
+      p {
+        color: white;
+        margin: 0;
+        padding-bottom: 10px;
+      }
+
+      #errorMelding {
+        color: red;
+        text-align: center;
+        margin: 20px;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 1rem;
+        border-radius: 5px;
+        margin-top: 7px;
+      }
+
+      button {
+        padding: 6px;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="lib.js"></script>
+  </head>
+  <body>
+    <h2 id="overskrift">Obligatorisk oppgave 1</h2>
+    <div class="ramme">
+      <p>
+        Fyll inn en dato <br />
+        Dato skal skrives slikt: dd.mm.åååå
+      </p>
+
+      <input type="text" id="inputVerdi" value="" />
+      <button id="knapp" onclick="datoSjekkButton()">Sjekk dato</button>
+    </div>
+
+    <div id="errorMelding"></div>
+
+    <script>
+      function datoSjekkButton() {
+        let dato = document.getElementById("inputVerdi").value;
+        let errorMelding = document.getElementById("errorMelding");
+        console.log(dato);
+
+        //sjekkDato fra js fil retunerer verdi true eller false
+        //Sender verdi inn på dato og sjekker om alle verdiene i function sjekkDato er true.
+
+        if (agithRavnSjekkDato(dato)) {
+          //Hvis sjekkDato retunerer true
+
+          document.getElementById("errorMelding").style.color = "green";
+          errorMelding.innerHTML = "Denne datoen er gyldig! 🙂";
+        } else {
+          //Else returner false
+
+          document.getElementById("errorMelding").style.color = "red";
+          errorMelding.innerHTML =
+            "Du har skrevet inn en ugyldig dato, prøv igjen. 😐";
+        }
+      }
+    </script>
+  </body>
+</html>
