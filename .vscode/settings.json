@@ -1,6 +1,4 @@
 {
   "liveServer.settings.port": 5501,
-  "files.exclude": {
-    "StartIT_Uke_4_Obligatorisk_1": true
-  }
+  "files.exclude": {}
 }
