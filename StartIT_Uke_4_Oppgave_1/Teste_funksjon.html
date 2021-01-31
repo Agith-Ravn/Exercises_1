@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="test-grupper">
+      <input
+        type="text"
+        name="textBox"
+        id="textBoxId"
+        oninput="fyllInnTekst()"
+        value=" "
+      />
+      <div id="resultat1Id"></div>
+    </div>
+
+    <script>
+      var textBox;
+      textBox = document.getElementById("textBoxId");
+
+      var resultat1;
+      resultat1 = document.getElementById("resultat1Id");
+
+      function fyllInnTekst() {
+        resultat1Id.innerHTML = "<div>" + fixText(textBox.value) + "</div>";
+      }
+
+      function fixText(text) {
+        let fjerneMellomrom = text.trim();
+        let fikseTekst =
+          fjerneMellomrom.toUpperCase().charAt(0) +
+          fjerneMellomrom.toLowerCase().slice(1);
+        return fikseTekst;
+      }
+    </script>
+  </body>
+</html>
