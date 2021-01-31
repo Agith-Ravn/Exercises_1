@@ -54,20 +54,18 @@
     <script src="lib.js"></script>
   </head>
   <body>
-    
     <div id="app"></div>
 
     <script>
-    //MODEL 
-    let html 
-    let dato = "";
-    
+      //MODEL
+      let html;
+      let dato = "";
 
-    //VIEW
-    updateView();
-    function updateView() {
-      html = `
-        <h2 id="overskrift">Obligatorisk oppgave 1</h2>
+      //VIEW
+      updateView();
+      function updateView() {
+        html = `
+        <h2 id="overskrift">Obligatorisk oppgave 1 (repetisjon) </h2>
 
         <div class="ramme">
           <p>
@@ -81,26 +79,25 @@
 
         <div id="errorMelding"></div>    
       `;
-      app.innerHTML = html
-    }
+        app.innerHTML = html;
+      }
 
-    //CONTROLLER
+      //CONTROLLER
       function datoSjekkButton() {
         let errorMelding = document.getElementById("errorMelding");
 
         if (checkDate(dato)) {
           errorMelding.style.color = "green";
           errorMelding.innerText = "Denne datoen er gyldig! 🙂";
-        }
-        else {
+        } else {
           errorMelding.style.color = "red";
-          errorMelding.innerText = "Du har skrevet inn en ugyldig dato, prøv igjen. 😐";
-        } 
-      //MVC SPØRSMÅL TIL LINN: Hvordan styler man errorMelding div uten document.getElementById("errorMelding").style.color = "farge";
-      // Går fint å sette innhold inni errorMelding med ${errorMelding}, men style.color ="green" osv fungerer ikke uten div?
-      //-------------------------------------------------------------------------------------------------------------------------------
+          errorMelding.innerText =
+            "Du har skrevet inn en ugyldig dato, prøv igjen. 😐";
+        }
+        //MVC SPØRSMÅL TIL LINN: Hvordan styler man errorMelding div uten document.getElementById("errorMelding").style.color = "farge";
+        // Går fint å sette innhold inni errorMelding med ${errorMelding}, men style.color ="green" osv fungerer ikke uten div?
+        //-------------------------------------------------------------------------------------------------------------------------------
       }
-
     </script>
   </body>
 </html>
