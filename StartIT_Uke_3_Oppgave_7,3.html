@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+ <div id="app"> </div>
+
+    <script>
+      //MODEL
+        var bunn = "";
+        var fyll = "";
+        var størrelse = "";
+        var form = "";
+
+        var html
+
+      //VIEW
+      updateView();
+      function updateView() {
+        html = `
+          <p>Ferdighet 9f - Valgsetninger - Sammenligne flere ting på en gang (og og eller sammen)</p>
+          <h3>Pizza-bestilling</h3>
+          <div id="info" style="padding-bottom: 20px;">Gjør ett valg på hver linje:</div>
+
+          Bunn: 
+          <input id="tykkBunn" type="radio" name="bunn" onchange="infoB(this)" />Tykk
+          <input id="tynnBunn" type="radio" name="bunn" onchange="infoB(this)" />Tynn <br />
+
+          Fyll: 
+          <input id="fyllTaco" type="radio" name="fyll" onchange="infoF1(this)" />Taco
+          <input id="fyllKylling" type="radio" name="fyll" onchange="infoF1(this)" />Kylling
+          <input id="fyllPepperoni" type="radio" name="fyll" onchange="infoF1(this)" />Pepperoni
+          <input id="Vegan" type="radio" name="fyll" onchange="infoF1(this)" />Vegan<br />
+
+          Størrelse: 
+          <input id="stor" type="radio" name="str" onchange="infoS(this)" />Stor
+          <input id="middels" type="radio" name="str" onchange="infoS(this)" />Middels
+          <input id="liten" type="radio" name="str" onchange="infoS(this)" />Liten<br />
+
+          Form:
+          <input id="rektangulær" type="radio" name="form" onchange="infoF2(this)" />Rektangulær
+          <input id="rund" type="radio" name="form" onchange="infoF2(this)" />Rund<br />
+
+          <button id="bestill" onclick="bestille();">Bestill</button>
+        `;
+        app.innerHTML = html
+      }
+
+
+      //CONTROLLER
+      function infoB(valgtBunn) {
+        bunn = valgtBunn.id
+      }
+
+      function infoF1(valgtFyll) {
+        fyll = valgtFyll.id
+      }
+
+      function infoS(valgtStørrelse) {
+        størrelse = valgtStørrelse.id
+      }
+
+      function infoF2(valgtForm) {
+        form = valgtForm.id
+      }
+
+      function bestille() {
+        if (bunn && fyll && størrelse && form) {
+          alert("Bestilt!")
+        }
+        else {
+          alert("Du har ikke fylt inn alt. Prøv igjen")
+        }
+      }
+    </script>
+</body>
+</html>
