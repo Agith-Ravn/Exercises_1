@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.0.css">
+  </head>
+  <body>    
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="Controller.js"></script>
+    <script>
+
+/*
+Lag enhetstester av controller-funksjonene! Altså funksjonene for å:
+1. velge stolpe (teste både velge den som er valgt og en annen)
+2. slette en stolpe
+3. endre en stolpe
+4. legge til en stolpe
+*/  
+
+//forberede | arrange 
+//handle | act
+//påstand | assert
+
+/*
+global variable | Disse må være tomme. legg heller verdi inn variablene i testene.
+hvis du skulle brukt verdier i global variablene, så ville du forandret dem 
++ funksjonene hadde skapt problemer for hverandre
+*/
+
+    let numbers;
+    let chosenBar; 
+    let inputValue;
+    let diagramNr;
+    function show() {}   
+
+    QUnit.test(
+      "1 | Velge stolpe diagram nr 5.",
+      function (assert) {
+      //forberede | arrange
+        numbers = [7, 3, 1, 5, 8];
+        chosenBar = 'ingen';
+        velgDiagram(5);
+
+      //handle | act
+        const actual = chosenBar;
+        const expected = 5;      
+        
+      //påstand | assert
+        assert.equal(actual, expected, "chosenBar får verdi \"5\"");
+    });
+
+    QUnit.test(
+      "1,2 | Velge stolpe diagram som allerede er valgt",
+      function (assert) {
+      //forberede | arrange
+        numbers = [7, 3, 1, 5, 8];
+        chosenBar = 5;
+        velgDiagram(5);
+
+      //handle | act
+        const actual = chosenBar;
+        const expected = 'ingen';      
+        
+      //påstand | assert
+        assert.equal(actual, expected, "chosenBar får \"ingen\" som verdi, når du trykker på samme stolpe diagram.",);
+    });
+
+    QUnit.test(
+      "1,3 | Velge ny stolpe diagram når du allerede har valgt en stolpe diagram",
+      function (assert) {
+      //forberede | arrange
+        numbers = [7, 3, 1, 5, 8];
+        chosenBar = 5;
+        velgDiagram(2);
+
+      //handle | act
+        const actual = chosenBar;
+        const expected = 2;      
+        
+      //påstand | assert
+        assert.equal(actual, expected, "chosenBar får ny verdi når du trykker på ny stolpe diagram.",);
+    });
+
+    QUnit.test(
+      "2 | Slette stolpe diagram nr 3.",
+      function (assert) {
+      //forberede | arrange
+        numbers = [7, 3, 1, 5, 8];
+        chosenBar = "ingen";
+        velgDiagram(3);
+        slettDiagram()
+
+      //handle | act
+        const actual = numbers;
+        const expected = [7, 3, 5, 8];;      
+        
+      //påstand | assert
+        assert.deepEqual(actual, expected, "Stolpe diagram nr 3 får chosenBar verdi \"ingen\" når du sletter valgt stolpe diagram");
+    }); //prøv vanlig equal først, hvis ikke prøv deepEqual
+  
+    
+    QUnit.test(
+      "3 | Endre stolpe diagram nr 2 fra verdi 3 til verdi 5.",
+      function (assert) {
+      //forberede | arrange
+        numbers = [7, 3, 1, 5, 8];
+        chosenBar = "ingen";
+        velgDiagram(2);
+        inputValue = 5;
+        endreDiagram()
+
+      //handle | act
+        const actual = numbers; //(chosenBarValue && numbers[chosenBar - 1]); <- fungerer også
+        const expected = [7, 5, 1, 5, 8]      //5;      
+        
+      //påstand | assert
+        assert.deepEqual(actual, expected, "Stolpe diagram nr 2 med verdi 3 får verdi 5 når du endrer stolpe diagram.");
+    }); 
+
+    QUnit.test(
+      "4 | Legge til ny stolpe diagram med verdi 7.",
+      function (assert) {
+      //forberede | arrange
+        numbers = [7, 3, 1, 5, 8];
+        inputValue = 7;
+        leggTilDiagram()
+
+      //handle | act
+        const actual = numbers;
+        const expected = [7, 3, 1, 5, 8, 7];
+        
+      //påstand | assert
+        assert.deepEqual(actual, expected, "Legger til ny stolpe diagram med verdi 7.");
+    }); 
+
+
+    </script>
+</body>
+</html>
