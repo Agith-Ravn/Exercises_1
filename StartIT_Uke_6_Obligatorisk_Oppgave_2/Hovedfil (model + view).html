@@ -27,14 +27,21 @@
       let diagramNr = "";
       let chosenBarValue = "";
 
-      let knapp = "disabled";
-      let knapp2 = "";
-
-      let style = "";
-
       /* -------------------------------------------------------| V I E W |----------------------------------------------------------------*/
       show();
       function show() {
+        let knapp = "disabled";
+        let knapp2 = "";
+
+        if (chosenBar == "ingen") {
+          //hvis chosenBar har nr
+          knapp = "disabled";
+          knapp2 = "";
+        } else {
+          knapp = "";
+          knapp2 = "disabled";
+        }
+
         let svgInnerHtml = "";
         for (let i = 0; i < numbers.length; i++) {
           svgInnerHtml += createBar(numbers[i], i + 1);
@@ -61,7 +68,7 @@
         let y = 60 - height;
         let color = calcColor(1, 10, barNo);
 
-        style = "";
+        let style = "";
         //console.log(barNo) //nr på diagram | 1, 2, 3, 4, 5 osv
         diagramNr = barNo;
         if (diagramNr == chosenBar) {
