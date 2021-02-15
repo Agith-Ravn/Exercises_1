@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Test Suite</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/qunit/qunit-2.14.0.css"
+    />
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="Controller.js"></script>
+    <script>
+
+    let numbers;
+    let chosenBar;
+    let inputValue;
+    let diagramNr;
+    function show() {}
+
+    QUnit.test("1 | Velge stolpe diagram nr 4.", 
+      function (assert) {
+      //forberede | arrange
+      numbers = [7, 3, 1, 5, 8];
+      chosenDiagram = "ingen";
+      chooseDiagram(4);
+
+      //handle | act
+      const actual = chosenDiagram;
+      const expected = 4;
+
+      //påstand | assert
+      assert.equal(actual, expected, 'chosenDiagram får verdi \"4\"');
+    });
+
+    QUnit.test("1,2 | Velge stolpe diagram som allerede er valgt", 
+      function (assert) {
+      //forberede | arrange
+      numbers = [7, 3, 1, 5, 8];
+      chosenDiagram = 3;
+      chooseDiagram(3);
+
+      //handle | act
+      const actual = chosenDiagram;
+      const expected = 'ingen';
+
+      //påstand | assert
+      assert.equal(actual, expected, 'chosenDiagram får verdi \"3\"');
+    });
+
+    QUnit.test("1,3 | Velge ny stolpe diagram når du allerede har valgt en stolpe diagram", 
+      function (assert) {
+      //forberede | arrange
+      numbers = [7, 3, 1, 5, 8];
+      chosenDiagram = 4;
+      chooseDiagram(2);
+
+      //handle | act
+      const actual = chosenDiagram;
+      const expected = 2;
+
+      //påstand | assert
+      assert.equal(actual, expected, 'chosenDiagram får verdi \"2\"');
+    });
+
+    QUnit.test("2 | Slette stolpe diagram nr 1.", 
+      function (assert) {
+      //forberede | arrange
+      numbers = [7, 3, 1, 5, 8];
+      chosenDiagram = 'ingen';
+      chooseDiagram(1);
+      deleteDiagram();
+
+      //handle | act
+      const actual = numbers;
+      const expected = [3, 1, 5, 8];
+
+      //påstand | assert
+      assert.deepEqual(actual, expected, 'Stolpe diagramm nr 1 forsvinner fra numbers array');
+    });
+
+    QUnit.test("3 | Endre stolpe diagram nr 3 fra verdi \"1\" til verdi \"8\"", 
+      function (assert) {
+      //forberede | arrange
+      numbers = [7, 3, 1, 5, 8];
+      chosenDiagram = 'ingen';
+      chooseDiagram(3);
+      inputValue = 8;
+      changeDiagram();
+
+      //handle | act
+      const actual = numbers;
+      const expected = [7, 3, 8, 5, 8];
+
+      //påstand | assert
+      assert.deepEqual(actual, expected, 'Stolpe diagram nr 3 får verdi \"8\"');
+    });
+    
+    QUnit.test("4 | Legge til ny stolpe diagram med verdi \"3\"", 
+      function (assert) {
+      //forberede | arrange
+      numbers = [7, 3, 1, 5, 8];
+      chosenDiagram = 'ingen';
+      inputValue = 3;
+      addDiagram();
+
+      //handle | act
+      const actual = numbers;
+      const expected = [7, 3, 1, 5, 8, 3];
+
+      //påstand | assert
+      assert.deepEqual(actual, expected, 'Legger til ny stolpe diagram med verdi \"3\"');
+    });
+
+  </script>
+  </body>
+</html>

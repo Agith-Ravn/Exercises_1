@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .rute {
+        color: blue;
+        background: lightblue;
+        padding: 18px;
+        margin: 10px;
+        border: solid green 7px;
+        width: 30px;
+        height: 30px;
+        float: left;
+      }
+      .førstPåLinje {
+        clear: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="spill"></div>
+
+    <script>
+      // ------------------------------------------------------------| M O D E L |----------------------------------------------------------------------
+      let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8]; //ruter | burde ligge tilfeldig
+      let count = 0; //teller for hver gang du klikker på rute
+
+      // --------------------------------------------------------------| V I E W |-----------------------------------------------------------------------
+
+      updateView(); // lage ruter med for loop
+      function updateView() {
+        let altAvView1 = ""; //view > div id app
+
+        for (let rute = 0; rute < numbers.length; rute++) {
+          //for loop
+          let number = numbers[rute]; //
+          let erBlank = number === 0; //henter 0 og putter i erBlank
+          let numberText = erBlank ? "" : number; //hvis tallet er "erBlank" > ''; ellers number
+
+          let firstInLine = rute % 3 == 0 ? "førstPåLinje" : ""; //hvis påstand stemmer > alt1 ellers alt2
+
+          altAvView1 += `<div class="rute ${firstInLine}" onclick="trykketTall(${rute});"> ${numberText}</div>`;
+        } //nederste html er ikke innenfor for loop, så det vil kun komme 1.
+        altAvView1 += `<div style="clear: both;">Antall trekk: ${count}</div>`;
+        document.getElementById("spill").innerHTML = altAvView1;
+      }
+
+      // -------------------------------------------------------| C O N T R O L L E R  |----------------------------------------------------------------
+
+      function trykketTall(valgtRute) {
+        //teller hvor mange ganger du klikker på ruter MED TALL
+        count++; // console.log(count); //sjekke om count fungerer
+        updateView(); // for å se count
+        
+        let tomRute = finneTommeRuter(valgtRute); // for å finne hvilken ruter som er tomme. bruk en funksjon til dette.
+        if (tomRute == null) return true; //hvis tom rute er lik null, return true
+        numbers[tomRute] = numbers[valgtRute]; //valgt nr skal inn i tom rute?
+        numbers[valgtRute] = 0; //deretter blir valgt rute over tom med 0 verdi.
+        updateView(); //vise forandringer
+      }
+
+      function finneTommeRuter(valgtRute) {
+        //denne sjekker hvilken rute som er tomme
+        for (let delta of [-3, -1, 1, 3]) {
+          //Hva er dette?
+          let newIndex = valgtRute + delta; //hva skjer her??
+          if (newIndex < 0 || newIndex >= numbers.length) continue; // Continue statement = hopper over en iteration i loop?
+          if (numbers[newIndex] === 0) {
+            // hvis numbers[????] er lik 0
+            return newIndex; // ??
+          }
+        }
+        return null; // ??
+      }
+    </script>
+  </body>
+</html>

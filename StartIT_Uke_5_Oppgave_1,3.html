@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="range" min="1" max="100" value="5" onchange="changeColumnCount(this.value)">
+    <div id="multiplicationMatrix"></div>
+    <script>
+        // hjelpevariabler for view og controller
+        let multiplicationMatrixDiv = document.getElementById('multiplicationMatrix');
+
+        // model
+        let columnCount = 5;
+        let multiplicationMatrix = [
+            1, 2, 3, 4, 5,   //<-- Disse trenger ikke å ha noen array.
+            2, 4, 6, 8, 10,        //Alle verdiene som er synlig kommer fra for loop i changeColumnCount funksjon..
+            3, 6, 9, 12, 15,       //Eneste funksjonen disse har er view når du laster inn... 
+            4, 8, 12, 16, 20,
+            5, 10, 15, 20, 25
+        ];
+
+        // view
+        show();
+        function show() {            //Forklar hva som skjer her før du begynner med input osv
+            let html = '';                                          // til view
+            for (let i = 0; i < multiplicationMatrix.length; i++) { // loop 25 ganger. 
+                let number = multiplicationMatrix[i];               // henter alle nummerene fra array og går inn på number
+                //console.log(number)
+                html += `<div>${number}</div>`;                     // alle nummerene (1-25) går inn i div
+            }
+            multiplicationMatrixDiv.innerHTML = html;               // alt av html går til MCM div   
+            multiplicationMatrixDiv.style.display = 'grid';         // style MVM div med grid
+            multiplicationMatrixDiv.style.gridTemplateColumns = `repeat(${columnCount},40px)`; 
+        }                                                           // grid-template-columns: repeat(antall griditems, 40px)
+
+        function changeColumnCount(valgtVerdi) {
+            columnCount = valgtVerdi;
+            multiplicationMatrix = []; // skal bytte verdiene innenfor array med det for loop "produserer"
+            for (let mVerdiEn = 1; mVerdiEn <= valgtVerdi; mVerdiEn++) {  // må ha verdi på 1 for at loop starter på 1.
+                for (let mVerdiTo = 1; mVerdiTo <= valgtVerdi; mVerdiTo++) { 
+                    multiplicationMatrix.push(mVerdiEn * mVerdiTo); 
+                
+                }
+            }
+            show();
+        }
+    </script>
+</body>
+</html>

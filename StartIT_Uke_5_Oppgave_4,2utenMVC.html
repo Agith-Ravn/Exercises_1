@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Søke Start IT</title>
+    <style>
+      div {
+        color: blue;
+        background-color: azure;
+        padding: 10px;
+        margin: 10px;
+        border: solid cornflowerblue 5px;
+        width: 20px;
+        height: 20px;
+        float: left;
+      }
+
+      div.førstPåLinja {
+        clear: left;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- -->
+    <!-- tar med this element + id'ene -->
+    <div id="r1k1" onclick="trykk(this, 'r2k1', 'r1k2')">7</div>
+    <div id="r1k2" onclick="trykk(this, 'r1k1', 'r2k2','r1k3')">1</div>
+    <div id="r1k3" onclick="trykk(this, 'r1k2', 'r2k3')">2</div>
+    <div
+      id="r2k1"
+      class="førstPåLinja"
+      onclick="trykk(this, 'r2k2', 'r1k1', 'r3k1')"
+    >
+      5
+    </div>
+    <div id="r2k2" onclick="trykk(this, 'r2k1','r1k2','r2k3','r3k2')"></div>
+    <div id="r2k3" onclick="trykk(this, 'r1k3','r2k2','r3k3')">3</div>
+    <div id="r3k1" class="førstPåLinja" onclick="trykk(this, 'r2k1','r3k2')">
+      8
+    </div>
+    <div id="r3k2" onclick="trykk(this, 'r3k1', 'r2k2', 'r3k3')">4</div>
+
+    <!-- -->
+    <!-- Kan ha tomme '_' ruter også -->
+    <div id="r3k3" onclick="trykk(this, 'r3k2', 'r2k3', '_', '_')">6</div>
+    <script>
+      //tagElement tilkaller for "this" som henter div element
+      //alt1, alt2, alt3 og alt4 tilkaller div id.
+      //navnene kan du bestemme selv.
+      function trykk(tagElement, alt1, alt2, alt3, alt4) {
+        /*
+        console.log(tagElement)
+        console.log(alt1)
+        console.log(alt2)
+        console.log(alt3)
+        console.log(alt4)
+        */
+
+        //hvis alt1, altså første id er tom,
+        if (document.getElementById(alt1).innerHTML == "") {
+          //henter div > alt1 får verdi fra div du klikker
+          document.getElementById(alt1).innerHTML = tagElement.innerHTML;
+          tagElement.innerHTML = "";
+        }
+
+        //hvis alt2, altså andre id er tom,
+        if (document.getElementById(alt2).innerHTML == "") {
+          //henter div > alt2 får verdi fra div du klikker
+          document.getElementById(alt2).innerHTML = tagElement.innerHTML;
+          tagElement.innerHTML = "";
+        }
+
+        //hvis alt3, altså når tredje id er tom,
+        if (document.getElementById(alt3).innerHTML == "") {
+          //henter div > alt3 får verdi fra div du klikker
+          document.getElementById(alt3).innerHTML = tagElement.innerHTML;
+          tagElement.innerHTML = "";
+        }
+
+        //hvis alt4, altså når fjerde id er tom,
+        if (document.getElementById(alt4).innerHTML == "") {
+          //henter div > alt4 får verdi fra div du klikker
+          document.getElementById(alt4).innerHTML = tagElement.innerHTML;
+          tagElement.innerHTML = "";
+        }
+      }
+    </script>
+  </body>
+</html>

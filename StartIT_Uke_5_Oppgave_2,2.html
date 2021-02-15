@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Tre på rad</title>
+    <style>
+    
+    #flex {
+        display: flex;
+    }
+
+        #altAnnet{
+            margin-left: 20px;
+            width: 300px;
+            font-size: 1.5rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            
+            background-color: lightgray;
+            border-radius: 10px;
+        }
+
+            #button {
+                display: block;
+                margin: 10px auto;
+                padding: 5px;
+                font-size: 1.5rem;
+                width: 100px;
+                border-radius: 10px;
+                cursor: pointer;
+                
+            }
+
+            #resultat {
+                margin: 10px;
+                text-align: center;
+                line-height: 1.4;
+            }
+
+            p {
+                line-height: 0.5;
+            }
+
+        #styleRute {
+            background-color: lightgray;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 2px;
+            font-size: 500%;
+            font-family: helvetica;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .first {
+            clear: left;
+        }
+    
+        .colorx {
+            color: blue;
+        }
+
+        .coloro {
+            color: hotpink;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="flex">
+        <div id="trePåRad"></div> 
+        <div id="altAnnet"> test </div>
+    </div>
+<script>
+
+/*-------------------------------------------------------| M O D E L |---------------------------------------------------------------*/
+    let trePåRadDiv = document.getElementById("trePåRad");
+    let altAnnet = document.getElementById("altAnnet")
+    let html2 = '';
+
+    let board = [
+    '','','',
+    '','','',
+    '','',''];
+
+    let xPoeng = "0";
+    let oPoeng = "0";
+    let resultatText = '';
+
+
+
+
+/*--------------------------------------------------------| V I E W |----------------------------------------------------------------*/
+showResult();
+function showResult() {
+    html2 = `
+    <button id="button" onclick="restart()"> Restart </button>
+    <div id="resultat"> 
+        <p class="colorx"> X Poeng: ${xPoeng} </p>
+        <p class="coloro"> O Poeng: ${oPoeng} </p> <br>
+        ${resultatText}
+    </div>
+    `
+    altAnnet.innerHTML = html2;
+}
+
+showBoard();
+function showBoard() {
+    let html = '';
+    for (let rute = 0; rute < board.length; rute++) {
+        let first = rute % 3 == 0 ? 'first' : ''; //Gir first til array element 0, 3, 6, 9 osv.
+        html += `<div onclick="setX(${rute})" id="styleRute" class="${first} color${board[rute]}">${board[rute]}</div>`
+    }
+    trePåRadDiv.innerHTML = html;
+}
+
+/*---------------------------------------------------| C O N T R O L L E R |---------------------------------------------------------*/
+
+function setX(valgtRute) {
+    if (board[valgtRute] === '') { //kun tomme ruter kan bli få X
+        board[valgtRute] = "x";
+
+        checkWinning();
+        showBoard();
+    }
+    console.log(board[valgtRute])
+    
+}
+
+function setO() {
+    let tommeRuter = Array.from(board.keys()).filter(i => board[i] === '');
+    if (tommeRuter.length === 0) return;
+    let tilfeldigTall = Math.floor(Math.random() * tommeRuter.length);
+    let tomRute = tommeRuter[tilfeldigTall];
+    board[tomRute] = 'o';
+    showBoard();  
+}
+
+function checkWinning() {
+    //Sjekker om X har vunnet
+    if (xWon()) {
+        resultatText = '1 Poeng til X';
+        xPoeng++;
+            if (xPoeng >= "3") {
+                resultatText = 'Du vant! <br> Trykk restart for å starte på nytt';
+                showResult();
+                showBoard();
+                return;
+            }
+        showResult();
+        setTimeout(newRound, 1000);
+    }
+    else {setO()}
+    
+    //Sjekker om O har vunnet
+    if (oWon())
+    {
+        resultatText = '1 Poeng til O';
+        oPoeng++;
+        //fjerne onclick
+            if (oPoeng == "3") {
+                resultatText = 'Du tapte! ';
+                restart()
+            }
+        showResult();
+        setTimeout(newRound, 1000);
+    }
+}
+
+function xWon() {
+    if (board[0] + board[1] + board[2] == "xxx" ||
+        board[3] + board[4] + board[5] == "xxx" ||
+        board[6] + board[7] + board[8] == "xxx" ||
+        board[0] + board[3] + board[6] == "xxx" ||
+        board[1] + board[4] + board[7] == "xxx" ||
+        board[2] + board[5] + board[8] == "xxx" ||
+        board[0] + board[4] + board[8] == "xxx" ||
+        board[2] + board[4] + board[6] == "xxx")
+        {return true;}
+    else {return false;}
+}
+
+function oWon() {
+    if (board[0] + board[1] + board[2] == "ooo" ||
+        board[3] + board[4] + board[5] == "ooo" ||
+        board[6] + board[7] + board[8] == "ooo" ||
+        board[0] + board[3] + board[6] == "ooo" ||
+        board[1] + board[4] + board[7] == "ooo" ||
+        board[2] + board[5] + board[8] == "ooo" ||
+        board[0] + board[4] + board[8] == "ooo" ||
+        board[2] + board[4] + board[6] == "ooo") 
+        {return true;}
+    else {return false;}
+}
+
+function newRound() {
+    board = [
+    '','','',
+    '','','',
+    '','',''];
+    resultatText = '';
+    showBoard();
+    showResult();
+}
+
+function restart() {
+    board = [
+    '','','',
+    '','','',
+    '','',''];
+    xPoeng = 0;
+    oPoeng = 0;
+    resultatText = '';
+    showBoard();
+    showResult();
+}
+
+/*
+    Plan
+    1. SetX funksjon | sette X der det er ledig 
+    2. SetO funksjon | computer som velger plassering av O
+    3. CheckWinning | Sjekke hveom som har funnet + legge til poeng + starte neste runde
+    4. Restart funksjon
+    5. Start funksjon
+    
+
+    SetX > 
+    Sjekke om du har vunnet > 
+    SetO > 
+    Sjekk om computer har vunner >
+    Hvis X eller O vinner, får de 1 Poeng + neste runde.
+    Hvis ikke stop der.
+*/
+    </script>
+</body>
+</html>
+

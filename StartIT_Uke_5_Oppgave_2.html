@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tre på rad</title>
+    <style type="text/css">
+
+      div.cell {
+        background-color: lightgray;
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin: 2px;
+        font-size: 500%;
+        font-family: helvetica;
+        text-align: center;
+        vertical-align: middle;
+        }
+
+        div.first {
+            clear: left;
+        }
+
+        .colorx {
+            color: blue;
+        }
+
+        .coloro {
+            color: hotpink;
+        }
+
+        #resultat {
+            display: block;
+            position: absolute;
+            top: 50px;
+            left: 400px;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.4;
+
+        }
+
+        button {
+            padding: 5px 5px;
+            margin: 10px 115px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div id="restartButton"> </div>
+    <div id="brett"></div>
+    <div id="resultat"></div>
+    
+
+<script type="text/javascript"> //Hva betyr dette??
+    //hjelpevariabler for view og controller
+    let boardDiv = document.getElementById("brett");
+    
+    // -------------------------------------------------------| M O D E L |----------------------------------------------------------------
+    let xPoeng = 0;
+    let oPoeng = 0;
+
+    let denSomHarVunnet = '';
+    let board = [
+        '', '', '', 
+        '', '', '',
+        '', '', ''];
+
+
+
+    // -------------------------------------------------------| V I E W |----------------------------------------------------------------
+    showButton();
+    function showButton() {
+        document.getElementById("restartButton").innerHTML = `
+        <button onclick="restart()">Restart spill </button>
+        `;
+    }
+
+    showBoard();
+    function showBoard() {
+        let html = ''; //for å putte div inni, som senere skal inni boardDiv
+
+        //for loop til å lage 9 ruter med
+        for (let rute = 0; rute < 9; rute++) {
+            let first = rute % 3 == 0 ? 'first' : ''; //får class="first" til 0, 3 og 6
+            html += `<div onclick="setX(${rute})" class="cell color${board[rute]} ${first} ">${board[rute]}</div>`;  //skal lage 9 div | ${rute} lager bare 0-9 tall 
+           //board[rutenr] | legger til first til 0, 3, 6 
+        }
+        boardDiv.innerHTML = html;
+    }
+
+    showResultat();
+    function  showResultat() {
+        document.getElementById("resultat").innerHTML = `
+        <div>X: ${xPoeng} Poeng</div>
+        <div>O: ${oPoeng} Poeng</div>
+        <div> 3 Poeng = Win</div>
+        <br>
+        <div>${denSomHarVunnet}</div>
+        `;    
+    }
+
+    // -------------------------------------------------------| C O N T R O L L E R |---------------------------------------------------------------
+
+    function setX(valgtRute) {
+        if (board[valgtRute] === '') {
+            board[valgtRute] = "x";
+            
+            checkWinning();
+        }
+               
+    }
+
+    function setO() {
+        let tommeRuter = Array.from(board.keys()).filter(i => board[i] === '');
+        if (tommeRuter.length === 0) return;
+        let tilfeldigTall = Math.floor(Math.random() * tommeRuter.length);
+        let tomRute = tommeRuter[tilfeldigTall];
+        board[tomRute] = 'o';
+        oWon();
+    }
+
+    function checkWinning(){
+        xWon();        //Sjekker om du har vunnet
+        if (xWon()) {
+            denSomHarVunnet = "Du vant runde! <br> 1+ Poeng til X!"
+            xPoeng++;
+            showBoard();
+            showResultat();
+            setTimeout(nextRound, 2000);
+            if (xPoeng == "3") {
+                alert("Du vant!");
+                restart();
+                }
+        }
+        else {
+            setO();
+            showBoard();
+        }
+            
+        oWon();
+        if (oWon()) {
+            denSomHarVunnet = "Du tapte runde! <br> +1 Poeng til O";
+            oPoeng++;
+            showBoard();
+            showResultat();
+            setTimeout(nextRound, 2000); 
+                if (oPoeng == "3") {
+                alert("Du tapte!")}
+        }
+        else {
+            showBoard();
+        }
+
+    }
+
+    function xWon() {
+        if (
+            board[0] + board[1] + board[2] == "xxx" ||
+            board[3] + board[4] + board[5] == "xxx" ||
+            board[6] + board[7] + board[8] == "xxx" ||
+            board[0] + board[3] + board[6] == "xxx" ||
+            board[1] + board[4] + board[7] == "xxx" ||
+            board[2] + board[5] + board[8] == "xxx" ||
+            board[0] + board[4] + board[8] == "xxx" ||
+            board[2] + board[4] + board[6] == "xxx") 
+        {
+            return true
+        }
+        else {
+            return false;
+        }
+    }
+
+    function oWon() {
+        if (
+            board[0] + board[1] + board[2] == "ooo" ||
+            board[3] + board[4] + board[5] == "ooo" ||
+            board[6] + board[7] + board[8] == "ooo" ||
+            board[0] + board[3] + board[6] == "ooo" ||
+            board[1] + board[4] + board[7] == "ooo" ||
+            board[2] + board[5] + board[8] == "ooo" ||
+            board[0] + board[4] + board[8] == "ooo" ||
+            board[2] + board[4] + board[6] == "ooo"
+            ) 
+        {
+            return true
+        }
+        else {
+            return false;
+        }
+
+    }
+        
+    function restart() {
+        board = [
+        '', '', '', 
+        '', '', '',
+        '', '', ''];
+        xPoeng = "0";
+        oPoeng = "0";
+        denSomHarVunnet = '';
+        showBoard();
+        showResultat();
+    }
+
+    function nextRound() {
+        board = [
+        '', '', '', 
+        '', '', '',
+        '', '', ''];
+        denSomHarVunnet = '';
+        showBoard();
+        showResultat();
+    }
+    
+    </script>
+  </body>
+</html>

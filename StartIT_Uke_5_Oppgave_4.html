@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #reaksjonsTid {
+        display: flex;
+        flex-wrap: wrap;
+        width: 550px;
+      }
+
+      .lamp {
+        border-radius: 50%;
+        background-color: black;
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+      }
+
+      .lightOn {
+        background-color: yellow
+      }
+
+
+      #buttons {
+        display: flex;
+        margin: 20px 100px;
+      }
+
+      #restartButton {
+        margin: 0px 20px;
+        font-weight: 500;
+        font-size: 20px;
+        color: white;
+        background-color: rgb(221, 2, 2);
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      #startButton {
+        margin: 0px 20px;
+        font-weight: 500;
+        font-size: 20px;
+        color: white;
+        background-color: rgb(108, 221, 2);
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .removeButton {
+        visibility: hidden;
+      }
+
+      #tid {
+        font-size: 1.4rem;
+        position: absolute;
+        left: 600px;
+      }
+      li {
+        line-height: 1.3;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="reaksjonsTid"></div>
+    <script>
+/* ------------------------------------------------------------| M O D E L |----------------------------------------------------------------------*/
+    let reaksjonsTid = document.getElementById('reaksjonsTid');
+
+    let circleArray = [
+        '','','','','',  //1
+        '','','','','',  //2
+        '','','','','',  //3
+        '','','','','',  //4
+        '','','','',''   //5
+      ];
+    let lightRandomCircle = '';
+
+    let startTime = '';
+    let finishTime = '';
+    let dinTid = '';
+
+/*--------------------------------------------------------------| V I E W |-----------------------------------------------------------------------*/
+//lage 25 sikler
+    updateView();
+    function updateView() {    
+      let view = '';
+      for (let i = 0; i < circleArray.length; i++) {
+
+          view += `<div class="lamp" id="div${[i]}" onclick="pressCircle(this)"> </div>`;
+      }
+
+      
+      view += `
+      <div id="buttons">
+        <button id="startButton" onclick="startGame()" > Start game </button>
+        <button id="restartButton" onclick="retstartGame()"> Restart game </button>
+      </div>
+      
+      <div id="tid">
+        <h3> Time: </h3> 
+          <ol>    
+          ${dinTid}
+          </ol>   
+      </div>
+      `
+      reaksjonsTid.innerHTML = view;
+    
+        
+    }
+
+    /*-----------------------------------------------------| C O N T R O L L E R |----------------------------------------------------------------*/
+    function startGame() {    
+      setTimeout(lightOnRandomPlass, 500 ); 
+    }
+    
+    function lightOnRandomPlass() { //funksjon som skal lyse en random div
+
+      sTime();
+
+      //hente tilfeldig tall mellom 0 og 25
+      let antallArrayElement = circleArray.length;
+      let randomTall = Math.floor(Math.random()*antallArrayElement); //tilfeldig tall mellom 0-25
+      
+      //for å lage tilfeldig div
+      let randomDiv = "div" + randomTall
+
+      //hente tilfeldig div      
+      lightRandomCircle = document.getElementById(randomDiv);
+
+      //style tilfeldig div
+      lightRandomCircle.classList.add("lightOn");
+
+    }
+
+    function sTime() {
+      startTime = new Date().getTime();
+      console.log("startTime "+startTime)
+    }
+
+    function pressCircle(chosenCircle) {
+      trykketDiv = chosenCircle
+        
+
+      if (trykketDiv.classList.contains("lightOn")) {
+        trykketDiv.classList.remove("lightOn")
+        setTimeout(lightOnRandomPlass, 100 );
+        fTime();
+        updateView();
+      }
+    } 
+
+    function fTime() {
+      finishTime = new Date().getTime();
+      console.log("finishTime "+finishTime)
+      dinTid += "<li>" + (finishTime - startTime) / 1000 + "sekunder </li>" ;
+      
+    }
+
+    function retstartGame() {
+      startTime = '';
+      finishTime = '';
+      dinTid = '';
+      lightRandomCircle = '';
+      updateView();
+    }
+    </script>
+  </body>
+</html>

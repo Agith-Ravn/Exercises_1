@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="oversetter"></div>
+
+    <script>
+      /* -----------------------------------------------------| M O D E L |---------------------------------------------------------*/
+      const oversetterDiv = document.getElementById("oversetter");
+
+      // oversetter alfabet x til alfabet y.
+      // Vær obs på at bokstavene du skal oversettes skal være på riktig posisjon
+      const xAlfabet = "abcdefghijklmnopqrstuvwxyzæøå 1234567890"; //husk mellomrom
+      const yAlfabet = "αβγδεζηθικλlmnopqrstuvwxyzæøå 5432109876";
+
+      let tekstInput = "";
+      let tekstOversatt = "";
+
+      /* ------------------------------------------------------| V I E W |----------------------------------------------------------*/
+      view();
+      function view() {
+        oversetterDiv.innerHTML = `
+              <input type="text" onchange="oversett(this.value)">
+              <div> Du skrev: ${tekstInput} </div>
+              <div> Oversatt: ${tekstOversatt} </div>
+              `;
+      }
+
+      /* -------------------------------------------------| C O N T R O L L E R |---------------------------------------------------*/
+      function oversett(verdiFraInput) {
+        tekstOversatt = "";
+
+        // Character er bare et eget navn, brukt igjen linje 45.
+        // for(x of y) = Looper igjen verdi y og putter inn i x
+        for (character of verdiFraInput) {
+          // Finner posisjon (nr) av det du har innenfor parameter i xAlfabet.
+          // i dette tilfelle henter posisjon av det du skrev i input
+          let bokstavPosisjon = xAlfabet.indexOf(character);
+          console.log(xAlfabet.indexOf(character));
+
+          // tekst[2] = bracket notion | henter bokstav k fra "tekst" på grunn av posisjon verdi 2.
+          // yAlfabet[bokstavPosisjon] gjør det samme med innholdet til yAlfabet (linje 20)
+          // og henter flere bokstaver pga bokstavPosisjon
+          // hvis du har tall i [0], henter den bare verdi 1 og gjør om all tekst til dette
+          //i dette tilfelle henter den verdi fra bokstavPosisjon og gjør om hele tekset.
+          tekstOversatt += yAlfabet[bokstavPosisjon]; //+= slik at den legger til flere
+
+          //console.log(yAlfabet[bokstavPosisjon])
+        }
+        view();
+      }
+    </script>
+  </body>
+</html>

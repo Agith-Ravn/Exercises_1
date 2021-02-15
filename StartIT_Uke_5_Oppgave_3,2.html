@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Søke Start IT</title>
+    <style>
+        #spill {
+          display: flex;
+          width: 350px;
+          flex-wrap: wrap;
+        }
+        #rute {
+            color: blue;
+            background-color: azure;
+            padding: 20px 10px 10px 10px;
+            margin: 10px;
+            border: solid cornflowerblue 5px;
+            border-radius: 25%;
+            width: 60px;
+            height: 50px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        #teller {
+          margin: 10px 90px;
+          font-size: 1.5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="spill"> </div>
+
+    <script>
+/*-------------------------------------------------------| M O D E L |---------------------------------------------------------------*/
+let spill = document.getElementById("spill");
+let tallIRute = [0, 4, 7, 3, 1, 5, 8, 2, 6]; 
+let antallKlikk = 0;
+
+
+/*--------------------------------------------------------| V I E W |----------------------------------------------------------------*/
+view();
+function view () {
+  let ruter = '';
+
+  for (let rute = 0; rute < tallIRute.length; rute++) { // for loop.
+    let alleNummer = tallIRute[rute];   // tall i array inn i alleNummer
+    let zero = alleNummer === 0; // henter 0 fra alleNummer og legger den inn nullErBlank
+    let alleNummerog0ErBlank = zero ? '' : alleNummer; // gjør 0 blank
+
+    ruter += `<div id="rute" onclick="trykkeTall(${rute})"> ${alleNummerog0ErBlank}</div>`;
+  }
+  ruter += `<div id="teller"> Antall klikk: ${antallKlikk}</div>`;
+  spill.innerHTML = ruter;
+}
+
+/*---------------------------------------------------| C O N T R O L L E R |---------------------------------------------------------*/
+function trykkeTall(valgtRute) {
+  antallKlikk++; //teller antall ganger du klikker
+  view();
+
+    let tomRute = finneTommeRuter(valgtRute); 
+    if (tomRute == null) return true; 
+    tallIRute[tomRute] = tallIRute[valgtRute]; 
+    tallIRute[valgtRute] = 0;
+    view();
+}
+
+//Skjønner ikke det under. se over senere
+function finneTommeRuter(valgtRute) {
+        for (let delta of [-3, -1, 1, 3]) {        
+          let newIndex = valgtRute + delta; 
+          if (newIndex < 0 || newIndex >= tallIRute.length) continue; 
+          if (tallIRute[newIndex] === 0) {
+            return newIndex;
+          }
+        }
+        return null;
+      }
+
+/*
+  Plan: 
+  x Lage diver med for loop + array
+  x Xtyle med flexbox isteden
+  x onclick funksjon + teller
+  x plassere tall du klikker på i tomme ruter
+*/
+    </script>
+</body>
+</html>
