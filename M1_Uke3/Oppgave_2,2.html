@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      //model
+      pinScreen = "";
+      screen = "Enter Pin Code:";
+
+      //control
+      function talletDuTrykket(tallet) {
+        pinScreen += tallet.innerHTML;
+        updateView();
+        if (pinScreen == 3333) {
+          screen = "Riktig!";
+          pinScreen = "";
+          updateView();
+        } else if ((pinScreen.length >= 4) & (pinScreen != 3333)) {
+          screen = "Feil!";
+          pinScreen = "";
+          updateView();
+        }
+      }
+
+      //view
+      updateView();
+      function updateView() {
+        document.getElementById("app").innerHTML = `
+            <div>
+                <button onclick="talletDuTrykket(this)">1</button>
+                <button onclick="talletDuTrykket(this)">2</button>
+                <button onclick="talletDuTrykket(this)">3</button>
+
+                <button onclick="talletDuTrykket(this)">4</button>
+                <button onclick="talletDuTrykket(this)">5</button>
+                <button onclick="talletDuTrykket(this)">6</button>
+
+                <button onclick="talletDuTrykket(this)">7</button>
+                <button onclick="talletDuTrykket(this)">8</button>
+                <button onclick="talletDuTrykket(this)">9</button>
+
+                <button onclick="talletDuTrykket(this)">0</button>
+
+                <div>${screen}</div>
+                <div>${pinScreen}</div>
+            </div>
+
+        `;
+      }
+    </script>
+  </body>
+</html>

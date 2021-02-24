@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      #alt {
+        padding: 0 2rem;
+      }
+
+      h3 {
+        padding-top: 1rem;
+      }
+
+      button {
+        margin: 2rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      //MODEL
+      let html
+      let dinTykkelse = "";
+      let dinFyllValg = "";
+      let dinStørrelse = "";
+      let dinFormValg = "";
+
+
+      //VIEW
+      updateView();
+      function updateView() {
+        html = `
+        <div id="alt">
+          <h2>Pizza-bestilling</h2>
+          <div id="info" style="padding-bottom: 20px;">Gjør ett valg på hver linje:</div>
+
+          <h3> Bunn: </h3> 
+          <input id="tykkBunn" type="radio" name="bunn" onchange="velgBunn('tykk')" >Tykk
+          <input id="tynnBunn" type="radio" name="bunn" onchange="velgBunn('tynn')" >Tynn <br />
+
+          <h3> Fyll: </h3> 
+          <input id="fyllTaco" type="radio" name="fyll" onchange="velgFyll('taco')" >Taco
+          <input id="fyllKylling" type="radio" name="fyll" onchange="velgFyll('kylling')" >Kylling
+          <input id="fyllPepperoni" type="radio" name="fyll" onchange="velgFyll('pepperoni')" >Pepperoni
+          <input id="fyllVeganTaco" type="radio" name="fyll" onchange="velgFyll('vegan taco')" >Vegan Taco<br />
+
+          <h3> Størrelse: </h3> 
+          <input id="stor" type="radio" name="str" onchange="velgStørrelse('stor')" >Stor
+          <input id="middels" type="radio" name="str" onchange="velgStørrelse('middels')"  >Middels
+          <input id="liten" type="radio" name="str" onchange="velgStørrelse('liten')"  >Liten<br />
+
+          <h3> Pizza form: </h3> 
+          <input id="rektangulær" type="radio" name="form" onchange="velgForm('rektangulær')" >Rektangulær
+          <input id="rund" type="radio" name="form" onchange=""velgForm('rund')" >Rund<br>
+
+          <button id="bestill" onclick="aktivereBestillKnapp()"> Bestill </button>
+        </div>
+      `;
+      app.innerHTML = html;
+      }
+
+      //CONTROLLER
+      function velgBunn(bunn){
+        dinTykkelse = bunn;
+      }
+
+      function velgFyll(fyll){
+        dinFyllValg = fyll;
+      }
+
+      function velgStørrelse(størrelse){
+        dinStørrelse = størrelse;
+      }
+
+      function velgForm(pform){
+        dinFormValg = pform;
+      }
+
+      function aktivereBestillKnapp() {
+        if (dinTykkelse && dinFyllValg && dinStørrelse && dinFormValg) {
+          alert('Bestilt!')
+
+        }
+        else {
+          alert('Du har ikke fylt inn alt...')
+        }
+      }
+  </script>
+  </body>
+</html>

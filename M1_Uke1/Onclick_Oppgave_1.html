@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .quiz_header {
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        .quiz {
+            display: block;
+            background-color:rgb(240, 207, 21);
+            width: 500px;
+            padding: 0.5rem 0 1rem 0;            
+            margin: auto;
+            border-radius: 10px;            
+        }
+
+        h3 {
+            text-align: center;
+        }
+        .svar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            
+        }
+
+        p {
+            border: 2px solid;
+            padding: 0.5rem 2rem;
+            border-radius: 5px;
+            margin: 1rem;
+            font-weight: 600;
+            background-color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+        <div class="quiz_header">
+            <h1>Quiz</h1>
+        </div>
+        <div class="quiz">
+            <h3>Hvor mange delstater er det i USA?</h3>
+            <div class="svar">
+                <p id="custom_id" onclick="custom_name()">49</p>
+                <p id="svar2" onclick="svaralt2()">50</p>
+                <p id="svar3" onclick="svaralt3()">51</p>
+            </div>
+        </div>
+
+    <script>
+        function custom_name() {
+            document.getElementById('custom_id').innerHTML = 'Feil!';
+        }
+
+        function svaralt2() {
+            document.getElementById('svar2').innerHTML = 'Riktig!';
+        }
+
+        function svaralt3() {
+            document.getElementById('svar3').innerHTML = 'Feil!';
+        }
+    </script>
+</body>
+</html>

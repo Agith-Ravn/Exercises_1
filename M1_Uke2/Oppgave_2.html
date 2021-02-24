@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartIT - Uke2 Oppgave2</title>
+    <style>
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        h2 {
+            text-align: center;
+            padding: 1rem;
+        }
+        div {padding: 1rem;
+            text-align: center;
+            border: 2px solid black;
+            background-color: rgb(224, 224, 224);
+            max-width: 400px;
+            display: block;
+            margin: auto auto 2rem auto;
+            height: auto;
+            padding: 1rem;
+            border-radius: 10px;            
+        }
+
+        h4 {
+            background-color: orange;
+            padding: 0.5rem;
+            border-radius: 5px;
+            width: 100px;
+            height: auto;
+            margin: auto;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        input {
+            
+            border-radius: 3px;
+        }
+    </style>
+
+</head>
+<body onload="testOnLoad()">
+   
+    <header>
+        <h2>Sjekk Console for å se om alt virker.</h2>
+    </header>
+    <div>
+        <h3>Oninput</h3>
+        <p>Skriv noe her + Trykk enter for å sjekke Onchange virker.</p>
+        <input type="text" onchange="testOnChange()">
+    </div>
+
+    <div>
+        <h3>Oninput</h3>
+        <p>Skriv noe her for å sjekke Oninput virker.</p>
+        <input type="text" oninput="testOnInput()">
+    </div>
+
+    <div>
+        <h3>Onmouseover & Onmouseout</h3>
+        <p> Dra musa over "TEST" for å sjekke om Onmouseover og Onmouseout virker. </p>
+        <h4 onmouseover="testOnMouseOver()" onmouseout="testOnMouseOut()"> TEST </h4>
+    </div>
+
+    <div>        
+        <h3>Ondblclick</h3>
+        <p> Dobbelklikk på "TEST" for å sjekke om Ondblclick virker. </p>
+        <h4 ondblclick="Ondblclick()">TEST</h4>
+    </div>
+
+    <div>
+        <h3>Oncontextmenu</h3>
+        <p> Høyreklikk på "TEST" for å sjekke om Oncontextmenu virker. </p>
+        <h4 oncontextmenu="onContextMenu()">TEST</h4>
+    </div>
+
+    <div>
+        <h3>Onkeydown</h3>
+        <p> Skriv noe på felt for å sjekke om Onkeydown virker.</p>
+        <input type="text" onkeydown="onKeyDown()">
+    </div>
+    
+
+
+    <script>
+        	function testOnLoad() {
+                console.log("Onload virker");}
+               
+            function testOnChange() {
+                console.log("Onchange virker");}
+            
+            function testOnInput() {
+                console.log("Oninput virker");}
+
+            function testOnMouseOver() {
+	            console.log("Onmouseover virker");}     
+                
+            function testOnMouseOut() {
+	            console.log("Onmouseout virker");}       
+            
+            function Ondblclick() {
+	            console.log("Ondblclick virker");}
+            
+            function onContextMenu() {
+	            console.log("Oncontextmenu virker");}
+
+            function onKeyDown() {
+	            console.log("Onkeydown virker");}
+    </script>
+</body>
+</html>

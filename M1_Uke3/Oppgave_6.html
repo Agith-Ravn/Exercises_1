@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #testDiv {
+        margin: 2rem;
+
+        width: 500px;
+        height: 500px;
+        border-radius: 10px;
+      }
+
+      #alt {
+        width: 550px;
+        height: 550px;
+        text-align: center;
+        margin: auto;
+      }
+
+      select {
+        padding: 0.5rem 1rem;
+      }
+
+      #tekst {
+        padding: 4rem;
+        line-height: 1.4;
+        text-align: justify;
+      }
+
+      .notat {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      //MODEL
+      let testDiv = document.getElementById("testDiv");
+      let bakgrunnsfarge = "black";
+      let farge = "white";
+
+      //VIEW
+      updateView();
+      function updateView() {
+        document.getElementById("app").innerHTML = `
+            <div id="alt">
+                <form action=""></form>
+                <label for="bakgrunnsfarge"></label>
+                <select name="bakgrunnsfarge" id="bakgrunnsfarge" onchange="endreFarge(this.value)"> 
+                    <option value="" selected disabled>Velg en farge</option>
+                    <option value="black">Svart</option>
+                    <option value="darkblue">Mørke blå</option>
+                    <option value="lightgray">Lyse grå</option>
+                    <option value="lightgreen">Lyse grønn</option>
+                    <option value="hotpink">Rosa</option>
+                </select>
+                
+                <p> ${bakgrunnsfarge} er valgt </p>
+                <p class="notat"> Hvordan får jeg verdi navn til en annen navn? Får bare vist verdi navnet over ^ </p>
+                <p class="notat"> Hvorfor vil ikke drop down vise hvilken farge du har valgt? </p>
+                <div id="testDiv" style="background-color:${bakgrunnsfarge};">
+                    <div id="tekst" style="color:${farge};"> 
+                        <h1> Lorem Ipsum </h1>
+                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+                    </div>
+                </div>
+            </div>
+            `;
+      }
+
+      //CONTROLLER
+      function endreFarge(valgtFarge) {
+        bakgrunnsfarge = valgtFarge;
+        console.log(valgtFarge);
+        updateView();
+        if (
+          valgtFarge == "lightgray" ||
+          valgtFarge == "lightgreen" ||
+          valgtFarge == "hotpink"
+        ) {
+          farge = "black";
+        } else {
+          farge = "white";
+        }
+        updateView();
+      }
+    </script>
+  </body>
+</html>
