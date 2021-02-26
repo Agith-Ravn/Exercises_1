@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      table,
+      tr,
+      td,
+      th {
+        border: 1px solid rgb(0, 0, 0);
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        padding: 10px;
+      }
+
+      th {
+        background-color: darkblue;
+        border: 1px solid darkblue;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background: antiquewhite;
+      }
+
+      #inputFelt {     
+        background-color: antiquewhite;
+        border: 1px solid black;
+        margin: 0 0 5px 0;
+        padding: 15px 0px;
+        width: 550px;
+
+      }
+
+      #inputFelt div {
+        margin: 10px 0 10px 0;
+        padding-right: 10px;
+        text-align: center;
+      }
+
+      #inputFelt input {
+        width: 250px;
+      }
+
+      #inputFelt button {
+        width: 300px;
+        margin: auto;
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- ====================================================| Html |==================================================== -->
+
+    <!-- Input felt for å lage ny rad -->
+    <div id="inputFelt">
+      <div>
+        <label> Person:</label>
+        <input id="personName" type="text" />
+      </div>
+
+      <div>
+        <label> Oppgave:</label>
+        <input id="taskDescription" type="text" />
+      </div>
+
+      <div>
+        <label> Frist: </label>
+        <input id="dateInput" type="date" /> 
+      </div>
+
+      <div>
+        <button onclick="addTask()"> Legg til oppgave </button>
+      </div>
+    </div>
+
+    <!-- Tabell-->
+    <table id="tasksTable"></table>
+    
+    <script>
+// ====================================================| Model |====================================================
+
+      // Objekter inni array = [object], [object], [object],
+      var tasks = [
+        { person: 'Bob',
+          description: "Handle til middag",
+          doBefore: '25/02/2021',
+          isDone: true,
+          dateDone: '25/02/2021', 
+        },
+
+        { person: 'Per',
+          description: "Vaske bilen",
+          doBefore: '26/02/2021',
+          isDone: false,
+          dateDone: '', 
+        },
+
+        { person: 'Ivar',
+          description: "Trene",
+          doBefore: '27/02/2021',
+          isDone: false,
+          dateDone: '', 
+        },
+      ];
+
+// ====================================================| Controller | Legg til oppgave |====================================================
+
+      // Forkortelse for input 
+      var taskDescriptionInput = document.getElementById("taskDescription");
+      var personNameInput = document.getElementById("personName");
+      var dateInput = document.getElementById("dateInput");
+
+      // Funksjon for legge til tasks - Henger sammen med button
+      function addTask() {
+
+        // Pusher ny array element med en object inni | alt innen for {} er objekt
+        tasks.push({
+            person: personNameInput.value,
+            description: taskDescriptionInput.value,   // Legger verdi fra input felt inn her
+            doBefore: fixDate(dateInput.value),
+            dateDone: '',   
+            isDone: false,  // false, slik at checkboks ikke er krysset av
+        });
+
+        // Gjør input felt blank etter push
+        taskDescriptionInput.value = "";
+        personNameInput.value = "";
+
+        // Update view
+        show();
+      }
+
+// =====================================================| View |====================================================
+      
+      // Forkortelse for tabell
+
+      // Må ha denne før, slik at tabellen vises? *** Hvorfor? ***
+      var tasksTable = document.getElementById("tasksTable");
+
+      //View function
+      show();
+      function show() {
+
+        //Variable med navn html som har alt av view når du laster inn siden
+        let html = `
+                        <tr>
+                            <th>Person</th>
+                            <th>Oppgave</th>
+                            <th>Frist</th>
+                            <th>Fullført</th>
+                            <th></th>
+                        </tr>`;
+
+        
+        //For loop med alle tasks
+        for (let i = 0; i < tasks.length; i++) {
+            
+            //Bestemmer hvordan view skal se ut i edit mode vs. ikke)
+            html += createHtmlRow(i);
+        }
+        //legger resultat inn i tabell
+        tasksTable.innerHTML = html;
+      }
+
+// ====================================================| Controller 2 | Krysse av / Forandre / Slette Oppgave |====================================================
+
+    //funksjon for å lage nye rader
+    function createHtmlRow(i) {
+
+        //Legger alle array elements inn i task variable
+        const task = tasks[i];
+
+        //Hvis task.isDone er true ()
+        const checkedHtml = task.isDone ? 'checked="checked"' : "";
+
+        // Henger sammen med linje 138 | Bestemmer hvordan view skal se ut når du har på edit mode eller ikke.        
+        if (!task.editMode)
+          
+          //Hvis ikke edit mode, så skal det se slikt ut: | Aktiveres med onclick="editTask(hvilken row)"
+          return `<tr>
+                      <td>${task.person}</td>
+                      <td>${task.description}</td>
+                      <td>${task.doBefore}</td>
+                      <td> 
+                        <input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} />
+                        ${task.dateDone} 
+                      </td>
+                      <td>
+                          <button onclick="deleteTask(${i})">Slett</button>
+                          <button onclick="editTask(${i})">Rediger</button>
+                      </td>
+                  </tr>
+                  `;
+
+          //Hvis det er edit mode, skal det se slikt ut:
+          return `<tr>
+                    <td><input id="editPerson${i}" type="text" value="${task.person}"/></td>
+                    <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
+                    <td><input id="editDate${i}" type="date" value="${task.dateInput}"/></td>
+                    <td></td>
+                    <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
+                    <td>
+                      <button onclick="updateTask(${i})">Lagre</button>
+                    </td>
+                  </tr>
+                  `;
+      }
+
+      //funksjon - onchange på checkbox | Henter html element + index (nr på hvilken checkbox)
+      function changeIsDone(checkbox, index) {
+       
+        //Når du krysser av checkbox skal dette lagres i modul (checkbox.checked er det samme som isDone == true)
+        //skal også legge to dato som du krysset av sist
+        if (tasks[index].isDone = checkbox.checked) {
+
+          //Lager fullført dato
+          let d = new Date();
+          let år = d.getFullYear();
+          let mnd = d.getMonth() + 1;
+            if (mnd < 10 | mnd > 0) {
+              mnd = "0" + mnd
+            }
+          let day = d.getDate();
+          datoenNå = day + "/" + mnd + "/" + år
+
+          //Legger inn fullført dato i object property
+          tasks[index].dateDone = datoenNå 
+        }
+
+        //Hvis ikke checkbox er krysset, skal fullført dato forsvinne
+        else if (tasks[index].isDone == false) {
+          tasks[index].dateDone = '' 
+        }        
+        show();
+      }
+
+      //funksjon som sletter object fra modul, som igjen fjerner tabell pga for loop + array.length. 
+      function deleteTask(index) {
+        tasks.splice(index, 1);
+        show();
+      }
+
+      //funksjon som skifter til "edit mode"
+      function editTask(index) {
+        tasks[index].editMode = true; 
+        show();
+      }
+
+      //Funksjon som oppdaterer liste når du trykker på button legg til / forandrer navn eller sletter
+      function updateTask(index) {
+
+        //person skal være mulig å redigere
+
+        //henter object property
+        const id = `editDescription${index}`;
+        const inputTag = document.getElementById(id);
+
+        const id2 = `editPerson${index}`;        
+        const inputTag2 = document.getElementById(id2);
+
+        const id3 = `editDate${index}`;        
+        const inputTag3 = document.getElementById(id3);
+        
+        //forkortellse?
+        const task = tasks[index];
+
+        //Gir dem ny verdi
+        task.description = inputTag.value;
+        task.person = inputTag2.value;
+        task.doBefore = fixDate(inputTag3.value)
+
+        //Gjør checkbox borte
+        task.editMode = false;
+        show();
+      }
+
+      //funksjon som fikser dato fra 2021-02-26 til 26/02/2021 format
+      function fixDate(dato) {
+        let test = dato
+        test = test.replace("-","/")
+        let år = test.substr(0,4)
+        let mnd = test.substr(5,2)
+        let day = test.substr(8,2)
+        let forwardSlash = test.substr(4,1)
+        test = day + forwardSlash + mnd + forwardSlash + år
+        return test;
+      }
+
+    </script>
+  </body>
+</html>
