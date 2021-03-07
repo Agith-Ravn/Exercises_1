@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Øvelse av å hente/putte nye verdier i objekter og objekter inn i array
+        //Bruk av for loop kombinert med array+objekter
+
+        //Noen vanlige operasjoner med lister av skalare verdier og objekterPage - Lage et eksempel av hver metoode
+
+
+/*--------------------------------------| Øvelse 1 | Array |-----------------------------------*/
+//Lage en array
+let array = ["arrayElement1", "arrayElement2", "arrayElement3"];
+
+//Legge til en array element i array (alternativ 1)
+    array[array.length] = "arrayElement4";
+
+//Legge til en array element i array (alternativ 2)
+    array.push("arrayElement5");
+
+//Få tak i hele array
+    // console.log(array);
+
+//Få tak i 1 array element
+    // console.log(array[2])
+
+//Forandre en hel array
+    let arrayEn = [1,2,3,4,5,6]; 
+    let arrayTo = [7,8,9,10,11,12]; 
+        arrayEn = arrayTo;
+        arrayTo = []
+    //console.log(arrayEn)
+
+//Sjekke om bestemt verdi eksisterer (True eller false) med for of loop
+// Finner også hvor mange av den verdien du ser etter
+    let count = 0;
+    for(let i = 0; i < array.length; i++) {
+        if(array[i] == "arrayElement2") {
+            count++;
+        } 
+    }
+    let isFound = count > 0;
+    //console.log(isFound);
+
+//Få tak i verdier over x (bruk arrayEn)
+    function hentNrOver10(arrayEn) {
+        let filterList = [];
+        for (let i = 0; i < arrayEn.length; i++) {
+            const alleNummer = arrayEn[i]
+            if (alleNummer > 9) {
+                filterList.push(alleNummer)
+            }
+        }
+        return filterList;
+    }
+    //console.log(hentNrOver10(arrayEn));
+
+
+//Funksjon som regner ut alt av sum
+    function fåSum(arrayEn) {
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            const alleNummer = arrayEn[i]
+            sum += alleNummer;
+        }
+        return sum;
+   }
+   //console.log(fåSum(arrayEn));
+
+/*--------------------------------------| Øvelse 2 | Object |-----------------------------------*/
+//Lage en object
+    let object = {
+        navn1:"verdi1",
+        navn2:"verdi2",
+        navn3:"verdi3"
+        }
+
+//Lage en ny object property til en allerede eksisterende object
+    // object.navn4 = 'Heyo';
+
+//Henter hele verdien
+    // console.log(object)
+
+//Henter 1 property value
+    // console.log(object.navn4)
+
+//Forandre på 1 object property value
+    object.navn2 = 'Test';
+    // console.log(object.navn2)
+
+//lage variable med x verdi + putte det inn i object
+    navn5 = "verdi5";
+    navn6 = "verdi6";
+    object.navn5 = navn5
+    object.navn6 = navn6
+    // console.log(object.navn5, object.navn6)
+
+/*--------------------------------------| Øvelse 3 | Object inn i array |-----------------------------------*/
+
+//Lage objects inni arrays
+let arrayTre = [
+        {propertyName: 'propertyValue1'},
+        {propertyName: 'propertyValue2'},
+        {propertyName: 'propertyValue3'},
+    ]
+
+//Legge til nye objects inni arrays
+    arrayTre[3] = {propertyName1: 'propertyValue4'};
+    arrayTre[4] = {propertyName2: 'propertyValue5'};
+    arrayTre.push({propertyName3: 'propertyValue6'});
+
+
+    arrayTre.push({age: 17})
+    arrayTre.push({age: 18})
+    arrayTre.push({age: 19})
+
+//Få tak i alle objects inni array
+    console.log(arrayTre);
+    //console.table(arrayTre);
+
+//Få tak i 1 object property value som er inni array
+    //console.log(arrayTre[4].propertyName2);
+
+//Få tak i 1 object property
+    //console.log(arrayTre[4]);
+
+//Endre et object porperty value som er inni i array
+    arrayTre[2].propertyName = 'Test2';
+
+//Endre et helt object som er inni i array
+    arrayTre[1] = {propertyName: 'Test1'};
+
+//Sjekker om x verdi eksisterer
+    let trueOrFalse = sjekkerXVerdi(arrayTre, 'propertyValue');
+
+    function sjekkerXVerdi(valgtArray, verdiSomSkalSjekkes) {
+        for(let i = 0; i < arrayTre.length; i++) {
+            const altInfo = valgtArray[i];
+            if (altInfo.propertyName == verdiSomSkalSjekkes) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //console.log(trueOrFalse)
+
+//Få tak i verdi over x
+    function alderOver18(valgtArray) {
+        let verdiLagresHer = [];
+        for (let i = 0; i < arrayTre.length; i++) {
+            const altInfo = valgtArray[i];
+            if (altInfo.age > 18) {
+                verdiLagresHer.push(altInfo);
+            }
+        }
+        return verdiLagresHer;
+    }
+    //console.log(alderOver18(arrayTre))
+
+//Regner ut age
+    function getSumOfAge(valgtArray) {
+        let sum = 0;
+        for(let i = 0; i < valgtArray.length; i++) {
+            const altInfo = valgtArray[i];
+            if (altInfo.age == undefined) {
+                altInfo.age = 0;
+            }
+            sum += altInfo.age;
+            console.log(altInfo.age)
+        }
+        return sum;
+    }
+    console.log(getSumOfAge(arrayTre))
+
+
+    </script>
+</body>
+</html>
