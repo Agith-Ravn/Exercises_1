@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        table, th, td {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 500;
+            border: 1px solid black;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 5px 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="yatzy"> </div>
+
+    <script>
+        //Lage yatzy spillet fra video + skriv litt om hvordan den fungerer
+
+/*------------ | Model |------------*/
+        //Alt info 
+        data = [
+            {rad: 'Spillere', score: ['Agith', 'Ida', 'Kayla'] },
+            {rad: 'Enere'},
+            {rad: 'Toere'},
+            {rad: 'Treere'},
+            {rad: 'Firere'},
+            {rad: 'Femere'},
+            {rad: 'Seksere'},
+            {rad: 'Sum'},
+            {rad: 'Bonus'},
+            {rad: '1 par'},
+            {rad: '2 par'},
+            {rad: '3 par'},
+            {rad: '4 par'},
+            {rad: 'Liten straight'},
+            {rad: 'Stor straight'},
+            {rad: 'Hus'},
+            {rad: 'Sjanse'},
+            {rad: 'Yatzy'},
+            {rad: 'Totalsum'},
+        ];
+
+
+/*------------ | View |------------*/
+    view();
+    function view() {
+
+        /*Tenk på å lage dette som en rutetabell fra exel 
+        array = hele tabellen
+        array element = rad på tabell
+        object property = kolonner */
+
+        
+         //for loop som lager score. Starter på rad nr 2 (index 1)
+        for (let i = 1; i < data.length; i++) {
+
+            //new array(3) er det sammme som array = [null, null, null]
+            //i dette tilfelle lager score = [null, null, null]
+            data[i].score = new Array(3);
+        }
+
+        data[3].score[2] = ['2']
+
+        let html = '<table>' 
+
+            //for loop som lager tabell
+            for(let i = 0; i < data.length; i++) {
+
+                //Henter alt data fra data array
+                const altData = data[i];
+                const altScore = data[i].score;
+                //console.log(altScore)
+
+                html += `<tr>
+                            <th> ${altData.rad} </th>`
+
+                            //for å tegne opp score data
+                            for (let j = 0; j < altScore.length; j++) {
+
+                                /* grunnen til at man setter opp altScore[j] 
+                                er for å få array element i hver rute.
+                                ${altScore[j] || 'test'} betyr bare at hvis verdi 
+                                eksisterer, hvis verdi, hvis ikke hvis string tekst */
+                                html += `<th> ${altScore[j] || ''} </th>`
+                            }
+                            
+                html +='</tr>'
+            }
+
+        html += '</table>'
+        document.getElementById("yatzy").innerHTML = html;
+        
+        //For å se alt i console
+        console.table(data);
+    }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+
+        //Alt data
+        const model = {
+
+            //searchText 
+            searchText: null,
+            people: [
+                {firstName: 'Per', lastName: 'Olsen', place: 'Larvik', },
+                {firstName: 'Pål', lastName: 'Hansen', place: 'Oslo', },
+                {firstName: 'Espen', lastName: 'Nordmann', place: 'Stavern', },
+                {firstName: 'Terje', lastName: 'Nordmann', place: 'Stavern', },
+            ],
+        };
+
+        updateView();
+        function updateView(){
+            let html = '';
+
+            //henter alt innenfor people array
+            let people = model.people
+
+            //Hvis model.searchText IKKE er null (linje 17)
+            if(model.searchText!=null){
+
+                //Lage nytt tom array
+                let newPeopleList = [];
+
+                /* gjør alt tekst som du skriver inn på input til små bokstaver 
+                + putter det inn i searchText variable */
+                const searchText = model.searchText.toLowerCase(); 
+
+                /* for of loop som går igjennom innhold (deler opp innhold) fra people altå model.people
+                 og putter det inn i person */
+                for(let person of people){
+                    console.log(person)
+
+                    /* gjør om innhold fra person til små bokstaver 
+                    og sjekker om tekst som du skriver innenfor includes eksisterer 
+                    (returnerer true eller false)
+                    */
+                    if(person.firstName.toLowerCase().includes(searchText)){
+
+                        /* true = legger til person som er true inn i newPeopleList array
+                        false = Legger ikke til noe */
+                        newPeopleList.push(person);
+                    }
+                }
+                people = newPeopleList;
+            }
+
+            //for loop som henter 1 object property og legger det i en <li> html element.
+            for(let i = 0; i < people.length; i++){
+                const person = people[i];                
+                html += `<li>${person.firstName} ${person.lastName} - ${person.place}</li>`;
+            }
+
+            /*lager input felt 
+            Henter info med oninput > putter verdi inn i model.searchText
+            altså går fra null til en verdi du skriver på input felt.
+            */
+            document.getElementById('app').innerHTML = `
+            
+                Filtrer: <br/>
+                <input type="text" value="${model.searchText || ''}" 
+                oninput="model.searchText=this.value">
+                <button onclick="updateView()">Oppdater</button>
+            
+                ${html}
+            `;
+        }
+
+
+    </script>
+</body>
+</html>
