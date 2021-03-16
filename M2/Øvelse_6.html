@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="meningsmålingApp"> </div>
+
+    <script>
+
+/*-----------------| Model |------------------*/
+const model = [{
+    denneSiden: 'LoginScreen',
+
+    //Hoppet over login bruker osv
+
+    admin: [        //Burde man nummerere object property navn? eller kan de ha samme navn?
+        { 
+            meningsmåling1: [     
+                {spørsmål1:'spørsmåltest1', svarAlternativ1:['a','b','c']},
+                {spørsmål2:'spørsmåltest2', svarAlternativ2:['a','b','c']},
+            ],
+
+            tidspunkt: [
+                {startDato:'dd/mm/åååå tt.mm'},
+                {sluttDato:'dd/mm/åååå tt.mm'},
+            ],
+
+            brukerSvar: [
+                {spørsmål1svar:['','','']},
+                {spørsmål2svar:['','','']},
+            ],
+        },
+    
+
+        {
+            meningsmåling2: [
+            {spørsmål1:'spørsmåltest1', svarAlternativ1:['a','b','c']},
+            {spørsmål2:'spørsmåltest2', svarAlternativ2:['a','b','c']},
+            ],
+
+            tidspunkt: [
+                {startDato:'dd/mm/åååå tt.mm'},
+                {sluttDato:'dd/mm/åååå tt.mm'},
+            ],
+
+            brukerSvar: [
+                {spørsmål1svar:['','','']},
+                {spørsmål2svar:['','','']},
+            ],
+        },
+    ],
+
+    bruker: [
+        //her skal kopi av spørsmål og svar alternativene være?
+        //Da må man lage en funksjon som lager view etter hva som inneholder i meningsmåling1 - 2 osv
+        //
+    ]
+}]
+
+
+/*-----------------| View |------------------*/
+
+/*-----------------| Controller |------------------*/
+
+
+for(let i = 0; i < altData.length; i++) {
+    
+    const adminData = model[0].admin[i];
+    
+    console.log(altData)
+}
+
+    </script>
+</body>
+</html>

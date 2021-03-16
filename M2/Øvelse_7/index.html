@@ -1,0 +1,42 @@
+  
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="vinlotterix.css" />
+    <script src="model.js"></script>
+    <script src="common.js"></script>
+    <script src="personer.js"></script>
+    <script src="vinnere.js"></script>
+</head>
+<body>
+    <div class="page" id="page">
+
+        <!-- skjuler og viser Meny -->
+        <div class="header" id="header">
+            <!-- Button har onclick event og starter en funksjon visOgSkjulMeny() (se funksjon nederst) -->
+            <button class="knapp" onclick="visOgSkjulMeny()">☰</button> Vinlotterix 🍷
+        </div>
+
+        <!-- Her kommer alt av innold? -->
+        <div class="innhold" id="innhold"></div>
+
+        <!-- Buttons som bytter view (Personer og vinnere) -->
+        <div class="meny" id="meny">
+            <button class="knapp fixed" onclick="visPersoner()">Personer</button><br />
+            <button class="knapp fixed" onclick="visTrekninger()">Vinnere</button><br />
+        </div>
+    </div>
+
+    
+    <script>
+        //Starer en funksjon (se personer.js)
+        visPersoner();
+
+        
+        function visOgSkjulMeny() {
+            document.getElementById('page').classList.toggle('pageUtenMeny');
+        }
+    </script>
+</body>
+</html>
