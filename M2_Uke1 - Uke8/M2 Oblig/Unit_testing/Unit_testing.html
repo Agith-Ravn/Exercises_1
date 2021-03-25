@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Test Suite</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/qunit/qunit-2.14.0.css"
+    />
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="../js/controller.js"></script>
+    <script>
+    
+    function view() {}
+    function menuOpen() {}
+    const model = {};
+
+    QUnit.module('To do list test', function() {
+
+      QUnit.test('Burde krysse av oppgave (lagre i modell)', function(assert) {
+        //arrange
+        model.toDoList = [
+        {oppgave: 'Oppgave 1', kryssetAv: true},
+        {oppgave: 'Oppgave 2', kryssetAv: false},
+        {oppgave: 'Oppgave 3', kryssetAv: false},
+        {oppgave: 'Oppgave 4', kryssetAv: false},
+        ]; 
+
+        //act
+
+        oppgaveKryssetAv(1);
+
+        //assert
+        const actual = model.toDoList;
+        const expected = [
+        {oppgave: 'Oppgave 1', kryssetAv: true},
+        {oppgave: 'Oppgave 2', kryssetAv: true},
+        {oppgave: 'Oppgave 3', kryssetAv: false},
+        {oppgave: 'Oppgave 4', kryssetAv: false},
+        ]; 
+
+        //påstand | assert
+        assert.deepEqual(actual, expected, '');
+      });
+
+
+      QUnit.test('Burde slette oppgave', function(assert) {
+        //arrange
+        model.toDoList = [
+          {oppgave: 'Oppgave 1', kryssetAv: true},
+          {oppgave: 'Oppgave 2', kryssetAv: false},
+          {oppgave: 'Oppgave 3', kryssetAv: false},
+          {oppgave: 'Oppgave 4', kryssetAv: false},
+        ];    
+
+        //act
+        slettOppgave(1);
+
+        //assert
+        const actual = model.toDoList;
+        const expected = [
+          {oppgave: 'Oppgave 1', kryssetAv: true},
+          {oppgave: 'Oppgave 3', kryssetAv: false},
+          {oppgave: 'Oppgave 4', kryssetAv: false},
+        ];
+
+        //påstand | assert
+        assert.deepEqual(actual, expected, 'Sletter oppgave som forventet');
+      });
+
+
+      QUnit.test('Burde legge til nye oppgaver i to do list', function(assert) {
+        //arrange
+        model.toDoList = [
+          {oppgave: 'Oppgave 1', kryssetAv: true},
+          {oppgave: 'Oppgave 2', kryssetAv: false},
+          {oppgave: 'Oppgave 3', kryssetAv: false},
+          {oppgave: 'Oppgave 4', kryssetAv: false},
+        ],      
+        model.nyOppgaveInput = '';
+
+        //act
+        model.nyOppgaveInput = 'test';
+        leggTilOppgave();
+
+        //assert
+        const actual = model.toDoList;
+        const expected = [
+          {oppgave: 'Oppgave 1', kryssetAv: true},
+          {oppgave: 'Oppgave 2', kryssetAv: false},
+          {oppgave: 'Oppgave 3', kryssetAv: false},
+          {oppgave: 'Oppgave 4', kryssetAv: false},
+          {oppgave: 'test', kryssetAv: false}
+        ];
+
+        //påstand | assert
+        assert.deepEqual(actual, expected, 'Legger til nye oppgaver som forventet');
+      });
+
+    });
+
+
+
+    QUnit.module('Notat test', function() {
+      
+      QUnit.test('Burde endre i modell om hvilken notat som vises)', function(assert) {
+        //arrange
+        model.currentPage = 0, //Notat index
+
+        //act
+        visNotatX(2)
+
+        //assert
+        const actual = model.currentPage;
+        const expected = 2; 
+
+        //påstand | assert
+        assert.deepEqual(actual, expected, 'Endrer i modell om hvilken notat som vises');
+      });
+
+
+      QUnit.test('Burde kunne legge til nye notater)', function(assert) {
+        //arrange
+        model.notater = [
+          {notatNavn: 'Notat A', innhold: 'Hva er Lorem Ipsum? Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst.'},
+          {notatNavn: 'Notat B', innhold: 'Covid-19 er navnet på sykdommen som forårsakes av viruset sars-CoV-2, som er et koronavirus. Sykdommen rammer først og fremst luftveiene. I desember 2020 startet vaksinering i flere land. I Norge ble de første vaksinedosene satt 27. desember 2020. For å hindre spredning av viruset anbefales det god håndhygiene, munnbind og tilstrekkelig ventilasjon.'},
+          {notatNavn: 'Notat C', innhold: 'I begynnelsen var Mars mer lik jorden. Mars hadde trolig en tykkere atmosfære. Det var varmt nok til at flytende vann dannet innsjøer og elver.'},
+        ];
+
+        //act
+        LeggtilNotater()
+
+        //assert
+        const actual = model.notater;
+        const expected = [
+          {notatNavn: 'Notat A', innhold: 'Hva er Lorem Ipsum? Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst.'},
+          {notatNavn: 'Notat B', innhold: 'Covid-19 er navnet på sykdommen som forårsakes av viruset sars-CoV-2, som er et koronavirus. Sykdommen rammer først og fremst luftveiene. I desember 2020 startet vaksinering i flere land. I Norge ble de første vaksinedosene satt 27. desember 2020. For å hindre spredning av viruset anbefales det god håndhygiene, munnbind og tilstrekkelig ventilasjon.'},
+          {notatNavn: 'Notat C', innhold: 'I begynnelsen var Mars mer lik jorden. Mars hadde trolig en tykkere atmosfære. Det var varmt nok til at flytende vann dannet innsjøer og elver.'},
+          {notatNavn: 'Notat', innhold: ''}
+        ];
+
+        //påstand | assert
+        assert.deepEqual(actual, expected, 'Legger til nye notater som forventet');
+      });
+
+
+      QUnit.test('Burde slette notater)', function(assert) {
+        //arrange
+        model.notater = [
+          {notatNavn: 'Notat A', innhold: 'Hva er Lorem Ipsum? Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst.'},
+          {notatNavn: 'Notat B', innhold: 'Covid-19 er navnet på sykdommen som forårsakes av viruset sars-CoV-2, som er et koronavirus. Sykdommen rammer først og fremst luftveiene. I desember 2020 startet vaksinering i flere land. I Norge ble de første vaksinedosene satt 27. desember 2020. For å hindre spredning av viruset anbefales det god håndhygiene, munnbind og tilstrekkelig ventilasjon.'},
+          {notatNavn: 'Notat C', innhold: 'I begynnelsen var Mars mer lik jorden. Mars hadde trolig en tykkere atmosfære. Det var varmt nok til at flytende vann dannet innsjøer og elver.'},
+        ],
+        model.currentPage = 0;
+
+        //act
+        slettNotat(2)
+
+        //assert
+        const actual = model.notater;
+        const expected = [
+          {notatNavn: 'Notat A', innhold: 'Hva er Lorem Ipsum? Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst.'},
+          {notatNavn: 'Notat B', innhold: 'Covid-19 er navnet på sykdommen som forårsakes av viruset sars-CoV-2, som er et koronavirus. Sykdommen rammer først og fremst luftveiene. I desember 2020 startet vaksinering i flere land. I Norge ble de første vaksinedosene satt 27. desember 2020. For å hindre spredning av viruset anbefales det god håndhygiene, munnbind og tilstrekkelig ventilasjon.'},
+        ];
+
+        //påstand | assert
+        assert.deepEqual(actual, expected, 'Legger til nye notater som forventet');
+      });
+
+
+      QUnit.test('Burde kunne endre og lagre på innhold av notater)', function(assert) {
+        //arrange
+        model.notater = [
+          {notatNavn: 'Notat A', innhold: 'Hva er Lorem Ipsum? Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst.'},
+          {notatNavn: 'Notat B', innhold: 'Covid-19 er navnet på sykdommen som forårsakes av viruset sars-CoV-2, som er et koronavirus. Sykdommen rammer først og fremst luftveiene. I desember 2020 startet vaksinering i flere land. I Norge ble de første vaksinedosene satt 27. desember 2020. For å hindre spredning av viruset anbefales det god håndhygiene, munnbind og tilstrekkelig ventilasjon.'},
+          {notatNavn: 'Notat C', innhold: 'I begynnelsen var Mars mer lik jorden. Mars hadde trolig en tykkere atmosfære. Det var varmt nok til at flytende vann dannet innsjøer og elver.'},
+        ],
+
+        //act
+        endreNotat(2)
+        model.notater[2].notatNavn = 'Heyo'
+        model.notater[2].innhold = 'Test ;)'
+        lagreNotat(2)
+
+        //assert
+        const actual = model.notater;
+        const expected = [
+          {notatNavn: 'Notat A', innhold: 'Hva er Lorem Ipsum? Lorem Ipsum er rett og slett dummytekst fra og for trykkeindustrien. Lorem Ipsum har vært bransjens standard for dummytekst helt siden 1500-tallet, da en ukjent boktrykker stokket en mengde bokstaver for å lage et prøveeksemplar av en bok. Lorem Ipsum har tålt tidens tann usedvanlig godt, og har i tillegg til å bestå gjennom fem århundrer også tålt spranget over til elektronisk typografi uten vesentlige endringer. Lorem Ipsum ble gjort allment kjent i 1960-årene ved lanseringen av Letraset-ark med avsnitt fra Lorem Ipsum, og senere med sideombrekkingsprogrammet Aldus PageMaker som tok i bruk nettopp Lorem Ipsum for dummytekst.'},
+          {notatNavn: 'Notat B', innhold: 'Covid-19 er navnet på sykdommen som forårsakes av viruset sars-CoV-2, som er et koronavirus. Sykdommen rammer først og fremst luftveiene. I desember 2020 startet vaksinering i flere land. I Norge ble de første vaksinedosene satt 27. desember 2020. For å hindre spredning av viruset anbefales det god håndhygiene, munnbind og tilstrekkelig ventilasjon.'},
+          {notatNavn: 'Heyo', innhold: 'Test ;)'},
+        ];
+
+        //påstand | assert
+        assert.deepEqual(actual, expected, 'Kan endre og lagre innhold av notater som forventet');
+      });
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+  </body>
+</html>

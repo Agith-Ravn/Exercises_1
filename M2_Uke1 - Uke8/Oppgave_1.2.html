@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(73, 73, 73);
+        }
+
+        #box {
+            background-color: rgb(248, 248, 248);
+            font-size: 1.2rem;
+            border-radius: 5px;
+            padding: 20px;
+            width: 360px;
+            text-align: center;
+            box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.678)
+            }
+
+            #inputFelt {
+                margin: 0 15px 10px 15px;
+            }
+
+            #inputFelt:nth-child(3) {
+                margin: 0 15px 20px 15px;
+            }
+
+            button {
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+
+            input {
+                padding: 5px;
+            }
+
+        #tabell {
+            margin: 10px 0 0 0;
+            }
+        
+            table {
+                box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.678)
+            }
+
+            table, th, td {
+                border: 1px solid black;
+                font-size: 1.2rem;
+            }
+            
+            table {
+                border-collapse: collapse;
+            }
+
+            td, th {
+                padding: 5px 10px;
+                background-color: rgb(248, 248, 248);
+            }
+
+            th {
+                background-color: rgb(26, 26, 204);
+                color: white;
+            }
+
+            #checkbox {
+                width: 30px;
+                height: 30px;
+            }
+
+        
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="inputFelt">
+            <label> Person: </label>
+            <input type="text" name="" id="personInputId">    
+        </div>
+
+        <div id="inputFelt">
+            <label> Oppgave: </label>
+            <input type="text" name="" id="oppgaveInputId">    
+        </div>
+
+        <div id="inputFelt">
+            <label> Dato: </label>
+            <input type="datetime-local" name="" id="fristInputId">    
+        </div>
+        
+        <div id="inputButton"> 
+            <button onclick="leggeTilNyeOppgaver()"> Legg til ny oppgave </button>    
+        </div>
+    </div>
+
+    <div id="tabell">
+        <table id="viewTabell"> 
+
+        </table>
+    </div>
+    
+
+    <script>
+
+/* ====================================================| Oppgave |====================================================
+    -   Gjøre hele oppgaven selv.
+    
+    - Lage en to do list
+        x Skal ha en kolonne med:
+        x Navn på person som skal utføre oppgave
+        x Oppgave description
+        x Tidsfrist
+        x Checkbox når du har utført oppgave 
+        x Fullført tidspunkt
+
+    - Oppskrift:
+        x Model
+            x ojects inn i array
+
+        x View
+            x Bruke for loop til å lage tabellen etter objects 
+            x Bruke for loop til å lage nye rader når du lager nye oppgaver
+            X Lage en edit mode til å endre og slette
+        
+        x Controller
+            x Pushe objects verdier når du lager nye oppgaver/rader
+            x Funksjon som sletter og endrer oppgaver, navn, dato osv
+            x Funksjon som oppdaterer det du sletter/endrer            
+            x Fikse dato
+*/
+
+//====================================================| Model |====================================================
+    
+    let personInput = document.getElementById("personInputId");
+    let oppgaveInput = document.getElementById("oppgaveInputId");
+    let fristInput = document.getElementById("fristInputId");
+
+    let oppgaver = [
+        {   
+            person: 'Agith',
+            oppgave: 'Gjøre ferdig oppgave 1',
+            frist: 'kl: 00.00 | dato: 27.02.2021',
+            ferdig: true,
+            tidsPunktFerdig: 'kl: 16.00 | dato: 26.02.2021',
+        },
+
+        {   
+            person: 'Kayla',
+            oppgave: 'Ut på tur',
+            frist: 'kl: 14.00 | dato: 27.02.2021',
+            ferdig: true,
+            tidsPunktFerdig: 'kl: 13.45 | dato: 27.02.2021', 
+        },
+
+        {   
+            person: 'Ida',
+            oppgave: 'Lage tamilsk mat',
+            frist: 'kl: 16.00 | dato: 27.02.2021',
+            ferdig: false,
+            tidsPunktFerdig: '',
+        },
+    ];
+   
+//====================================================| View |====================================================
+view();
+function view() {
+    let viewTabell = document.getElementById('viewTabell');
+    let html = 
+             //Overskrift til tabell 
+            `<tr>
+                <th> </th>
+                <th> Person </th>
+                <th> Oppgave </th> 
+                <th> Frist </th> 
+                <th> Fullført </th>
+                <th> </th>
+             </tr>
+             `;
+             
+    //For loop som lager nr verdi av antall array element du har. 
+    for (let i = 0; i < oppgaver.length; i++) {
+
+        //En funksjon som legger til nye rader (bestemt av antall arrays du har)
+        html += lageNyeRader(i);
+    }   
+
+    viewTabell.innerHTML = html
+}
+
+function lageNyeRader(arrayLengthIndex) {
+
+    //Henter alle array + objects
+    let altOppgaveInformasjon = oppgaver[arrayLengthIndex]
+
+    //Krysser av checkbox som allerede er krysset av (lagret i modul)
+    let kryssetCheckbox;
+        if (altOppgaveInformasjon.ferdig == true) {
+            kryssetCheckbox = 'checked="checked"';
+        } 
+        else {
+            kryssetCheckbox = '';
+        }
+
+    //View som blir tegnet opp + edit mode
+    // hvis den første return er sant, blir den returnert. hvis ikke vil den andre
+    if (!altOppgaveInformasjon.editModeAktivert) 
+
+            //Hvis ikke editmode er aktivert, returner false
+            return `<tr>
+                        <td> <input type="checkbox" onchange="oppgaveFullført(this, ${arrayLengthIndex})" id="checkbox" ${kryssetCheckbox}> </td>
+                        <td> ${altOppgaveInformasjon.person} </td>
+                        <td> ${altOppgaveInformasjon.oppgave} </td> 
+                        <td> ${altOppgaveInformasjon.frist} </td> 
+                        <td> ${altOppgaveInformasjon.tidsPunktFerdig} </td>
+                        <td> 
+                            <button onclick="aktivereEditMode(${arrayLengthIndex})"> Rediger </button> 
+                            <button onclick="sletteOppgave(${arrayLengthIndex})"> Slett </button>                            
+                        </td>
+                    </tr>`;
+            
+            //editModeAktivert kjøres når du trykker på rediger button. 
+            return `<tr>
+                        <td> <input type="checkbox" onchange="oppgaveFullført(this, ${arrayLengthIndex})" id="checkbox" ${kryssetCheckbox}> </td>
+                        <td> <input id="endrePerson${arrayLengthIndex}" type="text" name="" id="personInputId"> </td>
+                        <td> <input id="endreOppgave${arrayLengthIndex}" type="text" name="" id="oppgaveInputId"> </td> 
+                        <td> <input id="endreFrist${arrayLengthIndex}" type="datetime-local" name="" id="fristInputId"> </td> 
+                        <td> ${altOppgaveInformasjon.tidsPunktFerdig} </td>
+
+                        <td> 
+                            <button onclick="lagreEndring(${arrayLengthIndex})"> Lagre endringer</button>                        
+                        </td>
+                    </tr>`;   
+
+}
+
+//====================================================| Controller |====================================================
+
+//hver gang vi leggger til ny array legger vi til row
+function leggeTilNyeOppgaver() {
+    oppgaver.push({
+        person: personInput.value,
+        oppgave: oppgaveInput.value,
+        frist: fikseDatoInput(fristInput.value), // Burde ha denne format ='kl: 00.00 | dato: 27.02.2021',
+        ferdig: false,
+        tidsPunktFerdig: '',
+    })
+    view();
+}
+    // Funksjon som lager format = 'kl: 00.00 | dato: dd.mm.åååå',
+    function fikseDatoInput(henteDato) {
+        let dato = henteDato;
+        
+        let år = dato.substr(0,4)
+        let mnd = dato.substr(5,2)
+        let dag = dato.substr(8,2)
+        let tid = dato.substr(11,5).replace(":",".")
+
+        dato = 'kl: ' + tid +' | ' + 'dato: ' + dag + '.' + mnd + '.' + år;
+        //console.log(dato)
+        if (år == '') {return dato = ''}
+        else {return dato;}
+
+        //2 0 2 1 - 0 2 - 2 8  T  1  7  :  0  8
+        //0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+    }
+
+//Funksjon som lagrer checkbox er krysset i model + legger til tidspunkt oppgave ble fullført
+function oppgaveFullført(checkbox, IndexDuTrykketPå) {
+    
+    //Når du krysser av checkbox skal dette lagres i modul (checkbox.checked er det samme som isDone == true)
+    //skal også legge to dato som du krysset av sist
+    if (oppgaver[IndexDuTrykketPå].ferdig = checkbox.checked) {
+
+        //Lager fullført dato
+        let d = new Date();
+        let år = d.getFullYear();
+        let mnd = d.getMonth() + 1;
+            if (mnd < 10 | mnd > 0) {
+                mnd = "0" + mnd
+            }
+        let dag = d.getDate();
+        let time = d.getHours();
+        let minutt = d.getMinutes();
+                
+        datoenNå = 'kl: ' + time + '.' + minutt +' | ' + 'dato: ' + dag + '.' + mnd + '.' + år;
+
+        //Legger inn fullført dato i object property
+        oppgaver[IndexDuTrykketPå].tidsPunktFerdig = datoenNå;
+
+        }
+
+    //Hvis ikke checkbox er krysset, skal fullført dato forsvinne
+    else if (oppgaver[IndexDuTrykketPå].ferdig == false) {
+        oppgaver[IndexDuTrykketPå].tidsPunktFerdig = ''
+    }
+
+    view();
+    
+}
+
+// Aktivere edit mode når du trykker på rediger
+function aktivereEditMode(IndexDuTrykketPå) {
+    oppgaver[IndexDuTrykketPå].editModeAktivert = true;
+    view();
+}
+
+    //funksjon som oppdaterer i modul etter lagret endringer?
+    function lagreEndring(IndexDuTrykketPå) {
+
+        //Lage IDer + Henter riktig id
+        let Id1 = `endrePerson${IndexDuTrykketPå}`;
+        let endretPerson = document.getElementById(Id1);
+
+        let Id2 = `endreOppgave${IndexDuTrykketPå}`;
+        let endretOppgave = document.getElementById(Id2);
+
+        let Id3 = `endreFrist${IndexDuTrykketPå}`;
+        let endretFrist = document.getElementById(Id3);
+
+        //Henter all info fra den array du trykket på
+        let altOppgaveInformasjon = oppgaver[IndexDuTrykketPå];
+
+        //Putte nye verdier inn i object
+        altOppgaveInformasjon.person = endretPerson.value;
+        altOppgaveInformasjon.oppgave = endretOppgave.value;
+
+            //Formaterer dato
+            let dato = endretFrist.value;
+            
+            let år = dato.substr(0,4)
+            let mnd = dato.substr(5,2)
+            let dag = dato.substr(8,2)
+            let tid = dato.substr(11,5).replace(":",".")
+
+            dato = 'kl: ' + tid +' | ' + 'dato: ' + dag + '.' + mnd + '.' + år;
+            //console.log(dato)
+            if (år == '') {altOppgaveInformasjon.frist = '';}
+            else {altOppgaveInformasjon.frist = dato;}
+
+        //Skrur av edit mode
+        altOppgaveInformasjon.editModeAktivert = false;
+        view();
+    }
+
+
+//Funksjon som sletter og endrer oppgaver, navn, dato osv
+function sletteOppgave(IndexDuTrykketPå) {
+    oppgaver.splice(IndexDuTrykketPå, 1);
+    view();
+}
+
+//funksjon lagrer checkbox til modul?
+function sjekkeCheckbox(kryssetCheckbox, arrayLengthIndex) {
+    let checkbox = kryssetCheckbox
+
+        if (checkbox.checked) {
+
+        }
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+
+/* Abel font |  font-family: 'Abel'; */
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+/* Open sans font |  font-family: 'Open Sans' */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans';
+}
+
+#app {
+    width: 0;
+    height: 0;
+}
+
+
+/* Navbar --------------------------------------------------------------- */
+#navBar {
+    background-color: #5419fe;
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Abel';
+}
+
+    #notesButton {
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+        border-right: 1px solid rgb(255, 255, 255);
+        min-width: 300px;
+        padding: 10px 0;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        transition: 0.3s;
+        user-select:none;
+        cursor: pointer;
+    }
+
+        #notesButton:hover {
+            font-weight: 700;
+            font-size: 2.1rem;
+        }
+
+    #tools {
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    #toDoListButton {
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+        /* white-space: nowrap; */
+        border-left: 1px solid rgb(255, 255, 255);
+        min-width: 300px;
+        padding: 10px 0;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        transition: 0.3s;
+        user-select:none;
+        cursor: pointer;
+
+    }
+
+        #toDoListButton:hover {
+            font-weight: 700;
+            font-size: 2.1rem;
+        }
+
+/* Notater --------------------------------------------------------------- */
+.notes {
+    background-color: rgb(226, 226, 226);
+    width: 300px;
+    height: 800px;
+    margin: 0 0 0 0;
+    border-radius: 0 0 10px 10px;
+}
+
+    /* På når man ikke har trykket på notes button */
+    .noteHidden {
+        display: none;
+    }
+
+    .noteContainer {
+        position: relative;
+        top: 10px;
+        left: 10px;
+        width: 280px;
+        height: 715px;
+        margin: 0 0 20px 0;
+        overflow-y: auto;
+
+    }
+
+        .note {
+            display: block;
+            text-align: center;
+            height: 60px;
+            width: 278px;
+            margin: 0;
+            line-height: 2.5;
+            font-weight: 500;
+            user-select:none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.308);
+            cursor: pointer;
+        }
+
+        /* På når man ikke har trykket på notes button */
+        .nyttNotatHidden {
+        display: none;
+        }
+    
+        .nyttNotat {
+            background-color: #9b9b9b;
+            color: white;
+            display: block;
+            text-align: center;
+            height: 50px;
+            margin: 0 0 10px 0;
+            line-height: 2;
+            font-weight: 500;
+            width: 278px;
+            position: relative;
+            left: 12px;
+            user-select:none;
+            cursor: pointer;
+            background-color: #5419fe;
+            border-radius: 5px;
+
+        }
+
+
+/*  Tools (kommer mer ifremtiden) --------------------------------------------*/
+#tools {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/* To do list --------------------------------------------------------------- */
+.toDoList {
+    background-color: rgb(226, 226, 226);
+    width: 300px;
+    height: 800px;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    z-index: 1;
+    border-radius: 0 0 10px 10px;
+}
+
+    .toDoListContainer {
+        position: relative;
+        top: 20px;
+        left: 15px;
+        width: 275px;
+        height: 700px;
+        overflow-y: auto;
+        margin: 0 0 40px 0;
+
+    }
+
+        .oppgave {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0 10px 0;
+
+        }
+            .toDoListCheckboxHidden {
+                display: none;
+            }
+
+                .toDoListCheckbox {
+                    display: block;
+                    width: 25px;
+                    height: 25px;
+                    padding: 20px;
+                    cursor: pointer;
+                }
+
+            .oppgaveTekstHidden {
+                display: none;
+            }
+                .oppgaveTekst {
+                    display: block;
+                    font-size: 1.2rem;
+                    margin: 0 0 5px 0;
+                    width: 250px;
+                    text-align: center;
+                }
+
+            .fjernOppgaveHidden {
+                display: none;
+            }
+                .fjernOppgave {
+                    display: block;
+                    font-size: 1.5rem;
+                    font-family: monospace;
+                    color: rgba(0, 0, 0, 0.500);
+                    padding: 0 10px 0 10px;
+                    user-select:none;
+                    margin: 0 0 5px 0;
+                    cursor: pointer;
+                }
+
+    .nyttOppgave {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }   
+        /* På når man ikke har trykket på to do list button */
+        .oppgaveInputHidden {
+            display: none;
+        }        
+            .oppgaveInput {
+                display: block;
+                font-size: 1.3rem;
+                padding: 10px;
+                margin: 0 0 0 5px;
+                width: 200px;
+                border-radius: 5px;
+            }
+
+        /* På når man ikke har trykket på to do list button */
+        .leggTilOppgaveHidden {
+            display: none;
+        }
+            .leggTilOppgave {
+                display: block;
+                font-size: 2rem;
+                padding: 2.5px 13px 2.5px 13px;
+                cursor: pointer;
+                background-color: #5419fe;
+                border-radius: 5px;
+                color: white;
+                
+            }
+
+/* Notat innhold --------------------------------------------------------------- */
+.notatGridLayout {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    position: absolute;
+    top: 80px;
+    z-index: -1;
+}
+
+#notatContainer {
+    padding: 50px;
+}
+
+#overskrift {
+    padding: 5px;
+}
+
+#tekst {
+    font-size: 1.2rem;
+}
+
+.slettOgEndreContainer {
+    display: flex;
+    align-items: center;
+    
+}
+.slettNotat, .endreNotat {
+    width: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: 700;
+    user-select:none;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 20px 20px 0;
+}
+
+#overskriftInput {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    font-family: 'Open Sans';
+}
+
+#notatTekstInput {
+    font-size: 1.2rem;
+    width: 60vw;
+    height: 50vh;
+    overflow: hidden;
+    font-family: 'Open Sans';
+}

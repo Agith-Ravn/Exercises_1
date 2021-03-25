@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Introduksjon til objekter | Notater om hva som skjer på kode + gjøre om til mvc -->
+
+    <!-- Her blir view sendt (resultat) -->
+    <div id="stats"></div>
+
+    <script>
+//====================================================| Model |====================================================
+        var numbers = [];
+
+        //Forkortellse
+        var statsDiv = document.getElementById('stats');
+    
+//====================================================| View |=====================================================
+        show();
+        function show() {
+
+
+        //Viser en logg av det du har skrevet på input felt
+        const numbersHtml = `<ul>${numbers.map(n => `<li>${n}</li>`).join('')}</ul>`;
+
+        //henter verdiene frra calcStats() funksjon og putter inn stats
+        const stats = calcStats();
+
+        //statsHtml viser alle verdiene i tabell
+        const statsHtml = 
+
+            /* Input felt der du kun kan skrive inn nummer! 
+            onkeydown event + HVIS det du trykker på er lik (===)'Enter' 
+            skal addNumber funksjon kjøre + sende input verdi videre til funksjon */
+            `<input type="number" onkeydown="if (event.code === 'Enter') addNumber(this);" />
+
+            <table>
+                    <tr><td>Min</td><td>${stats.min}</td></tr>
+                    <tr><td>Max</td><td>${stats.max}</td></tr>
+                    <tr><td>Sum</td><td>${stats.sum}</td></tr>
+                    <tr><td>Snitt</td><td>${stats.avg}</td></tr>
+                    <tr><td>Antall</td><td>${stats.count}</td></tr>
+                </table>`;
+                statsDiv.innerHTML = statsHtml + numbersHtml;
+            }
+
+//====================================================| Controller |=====================================================
+        //Funksjon som gjør om verdi fra string til number datatype
+        function addNumber(inputTag) {
+
+            //numbers.push pusher verdi inn i array
+            numbers.push(parseInt(inputTag.value));
+
+            //Gjør inputfelt blank
+            inputTag.value = '';
+            show();
+        }    
+
+
+        /* funksjon som:
+            - Finner minste verdi (array element)
+            - Finner største verdi (array element)
+            - Sum av alle array element verdi
+            - Gjennomsnitt
+            - Antall array element        
+        */
+        function calcStats() {
+
+            //lager object med navn stats
+            var stats = {};
+
+            //lager nye properties
+
+            /*  putter første array element inn i stats.min og stats.max
+                verdiene går videre til stats min og max 
+                Denne verdien er bare til å ha noe å sammenligne med/placeholder? 
+                Lagt til Ternary Operator slik at undefined ikke dukker opp */
+            stats.min = numbers[0] ? numbers[0] : '0'; 
+            stats.max = numbers[0] ? numbers[0] : '0'; 
+            stats.sum = 0;
+            
+            //for of loop igjennom numbers + legger alle verdiene i n
+            for (let n of numbers) {
+
+                //Hvis verdiene i n er mindre enn stats.min = får stats.min n verdi
+                if (n < stats.min) stats.min = n;
+
+                //Hvis verdiene i n er større enn stats.max = får stats.max n verdi
+                if (n > stats.max) stats.max = n;
+
+                //legger til verdi (sum)
+                stats.sum += n;
+            }
+
+            //antall array element + regner ut gjennomsnitt 
+            stats.count = numbers.length;
+            stats.avg = stats.sum / stats.count ? stats.sum / stats.count : '0';
+
+            //returnerer stats | når du bruker "calcStats()", henter javascript alle verdiene 
+            return stats;
+        }
+        
+    </script>
+</body>
+    
+</html>
