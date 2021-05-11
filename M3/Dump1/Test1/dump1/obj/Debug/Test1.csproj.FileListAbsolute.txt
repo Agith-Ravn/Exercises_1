@@ -1,0 +1,7 @@
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Test1\Test1\Test1\obj\Debug\Test1.csprojAssemblyReference.cache
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Test1\Test1\Test1\obj\Debug\Test1.csproj.CoreCompileInputs.cache
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Test1\Test1\Test1\bin\Debug\Test1.exe.config
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Test1\Test1\Test1\bin\Debug\Test1.exe
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Test1\Test1\Test1\bin\Debug\Test1.pdb
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Test1\Test1\Test1\obj\Debug\Test1.exe
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Test1\Test1\Test1\obj\Debug\Test1.pdb

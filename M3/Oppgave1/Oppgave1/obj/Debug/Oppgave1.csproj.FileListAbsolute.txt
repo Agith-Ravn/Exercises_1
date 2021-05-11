@@ -1,0 +1,7 @@
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Oppgave1\Oppgave1\bin\Debug\Oppgave1.exe.config
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Oppgave1\Oppgave1\bin\Debug\Oppgave1.exe
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Oppgave1\Oppgave1\bin\Debug\Oppgave1.pdb
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Oppgave1\Oppgave1\obj\Debug\Oppgave1.csprojAssemblyReference.cache
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Oppgave1\Oppgave1\obj\Debug\Oppgave1.csproj.CoreCompileInputs.cache
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Oppgave1\Oppgave1\obj\Debug\Oppgave1.exe
+D:\Dokumenter\IT Utvikling\StartIT Modul 3\Oppgave1\Oppgave1\obj\Debug\Oppgave1.pdb
