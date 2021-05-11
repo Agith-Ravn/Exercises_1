@@ -15,6 +15,11 @@ namespace Oppgave1
             var range = 250;
 
             //int array som har plass til å holde 250. disse er tomme for nå.
+            ReadTextAndUpdateCharCounts(range);
+        }
+
+        private static void ReadTextAndUpdateCharCounts(int range)
+        {
             var counts = new int[range];
             int total = 0;
 
@@ -32,30 +37,35 @@ namespace Oppgave1
                 //?? = Null-coalescing operator. Hvis character ikke ekesisterer eller er null, kjør string.Empty
                 //string.Empty = zero-length string
                 total = UpdateCharCount(text, counts, total);
-                
+
                 //Looper igjennom 250 ganger
-                for (var i = 0; i < range; i++)
+                ShowCounth(range, counts, total);
+            }
+        }
+
+        private static void ShowCounth(int range, int[] counts, int total)
+        {
+            for (var i = 0; i < range; i++)
+            {
+                //Hvis counts[index] er større enn 0
+                if (counts[i] > 0)
                 {
-                    //Hvis counts[index] er større enn 0
-                    if (counts[i] > 0)
-                    {
-                        //"ny" variable character
-                        //(datatype)verdi | type casting
-                        var character = (char)i;
+                    //"ny" variable character
+                    //(datatype)verdi | type casting
+                    var character = (char) i;
 
-                        //dele total for å finne ut hvor mange prosent hver bokstav har
-                        double percentage = 100 * (double)counts[i] / total;
+                    //dele total for å finne ut hvor mange prosent hver bokstav har
+                    double percentage = 100 * (double) counts[i] / total;
 
-                        //ToString("F2") = En type format når du gjør om double to string
-                        //F2 format = 0.00 
-                        string outputText = character + " - " + percentage.ToString("F2") + "%";
+                    //ToString("F2") = En type format når du gjør om double to string
+                    //F2 format = 0.00 
+                    string outputText = character + " - " + percentage.ToString("F2") + "%";
 
-                        //Posisjon av tekst i command promt - Fortsatt usikker på dette
-                        Console.CursorLeft = Console.BufferWidth - outputText.Length - 1;
+                    //Posisjon av tekst i command promt - Fortsatt usikker på dette
+                    Console.CursorLeft = Console.BufferWidth - outputText.Length - 1;
 
-                        //C# skriver ut:
-                        Console.WriteLine(outputText);
-                    }
+                    //C# skriver ut:
+                    Console.WriteLine(outputText);
                 }
             }
         }
@@ -68,7 +78,6 @@ namespace Oppgave1
                 counts[(int) character]++;
                 total++;
             }
-
             return total;
         }
     }
