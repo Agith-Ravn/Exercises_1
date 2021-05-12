@@ -76,40 +76,55 @@ namespace Oppgave3
 
         private static void Method3()
         {
-            string x1 = null;
-            string y1 = null;
+            string x = null;
+            string y = null;
+            string z = null;
 
             for (int i = 0; i < 4; i++)
             {
-                x1 += X(i);
-                y1 += Y(0);
 
-                Console.WriteLine(x1);
-                Console.WriteLine(y1);
+                x += X();
+                y += Y();
+                if (i == 0)
+                {
+                    y = "";
+                }
+
+                z = Z();
+
+                Console.WriteLine(x);
+                Console.WriteLine(y);
+                Console.WriteLine(z);
 
             }
         }
-
-        private static string Y(int Index)
-        {
-            if (Index == 1)
-            {
-                return null;
-            }
-
-            string y1 = "-";
-            string y2 = null;
-
-            y2 += y1;
-            return y2;
-        }
-
-        private static string X(int i)
+        private static string X()
         {
             string x1 = "#";
             string x2 = null;
             x2 += x1;
             return x2;
         }
+
+        private static string Y()
+        {
+            string y1 = "O";
+            string y2 = null;
+
+            y2 += y1;
+            return y2;
+        }
+
+        private static string Z()
+        {
+            string z1 = "------";
+            int z2 = 2;
+            int z3 = z1.Length;
+     
+            z1 = z1.Substring(0, z3);
+            z3 = z3 - z2;
+            return z1;
+        }
+
     }
 }
