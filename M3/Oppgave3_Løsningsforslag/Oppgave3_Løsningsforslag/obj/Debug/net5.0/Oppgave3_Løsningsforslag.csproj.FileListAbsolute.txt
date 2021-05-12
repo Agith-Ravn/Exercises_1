@@ -1,0 +1,16 @@
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\bin\Debug\net5.0\Oppgave3_Løsningsforslag.exe
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\bin\Debug\net5.0\Oppgave3_Løsningsforslag.deps.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\bin\Debug\net5.0\Oppgave3_Løsningsforslag.runtimeconfig.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\bin\Debug\net5.0\Oppgave3_Løsningsforslag.runtimeconfig.dev.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\bin\Debug\net5.0\Oppgave3_Løsningsforslag.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\bin\Debug\net5.0\ref\Oppgave3_Løsningsforslag.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\bin\Debug\net5.0\Oppgave3_Løsningsforslag.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\obj\Debug\net5.0\Oppgave3_Løsningsforslag.csprojAssemblyReference.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\obj\Debug\net5.0\Oppgave3_Løsningsforslag.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\obj\Debug\net5.0\Oppgave3_Løsningsforslag.AssemblyInfoInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\obj\Debug\net5.0\Oppgave3_Løsningsforslag.AssemblyInfo.cs
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\obj\Debug\net5.0\Oppgave3_Løsningsforslag.csproj.CoreCompileInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\obj\Debug\net5.0\Oppgave3_Løsningsforslag.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\obj\Debug\net5.0\ref\Oppgave3_Løsningsforslag.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\obj\Debug\net5.0\Oppgave3_Løsningsforslag.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave3_Løsningsforslag\Oppgave3_Løsningsforslag\obj\Debug\net5.0\Oppgave3_Løsningsforslag.genruntimeconfig.cache
