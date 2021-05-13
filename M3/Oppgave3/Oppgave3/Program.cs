@@ -6,9 +6,14 @@ namespace Oppgave3
     {
         static void Main(string[] args)
         {
-            //Method1();
-            //Method2();
+            Method1();
+            Console.WriteLine(" ");
+            Method2();
+            Console.WriteLine(" ");
             Method3();
+
+
+            //Du tegnet symbolene feil... 
 
             //########
             //######
@@ -33,10 +38,10 @@ namespace Oppgave3
             // ##        ##
             //#            # 
 
-            //= = = = = = = = = = =  =  = 
-            //0 1 2 3 4 5 6 7 8 9 10 11 12
         }
 
+
+        //Tegning 1
         private static void Method1()
         {
             string x1 = "#";
@@ -59,6 +64,8 @@ namespace Oppgave3
             }
         }
 
+
+        //Tegning 2
         private static void Method2()
         {
             string x1 = "#";
@@ -74,6 +81,8 @@ namespace Oppgave3
             Method1();
         }
 
+
+        //Tegning 3
         private static void Method3()
         {
             string x = null;
@@ -82,49 +91,50 @@ namespace Oppgave3
 
             for (int i = 0; i < 4; i++)
             {
-
                 x += X();
                 y += Y();
                 if (i == 0)
                 {
                     y = "";
                 }
+                z = Z(i);
 
-                z = Z();
-
-                Console.WriteLine(x);
-                Console.WriteLine(y);
-                Console.WriteLine(z);
-
+                Console.WriteLine(y + x + z + z + x + y);
             }
         }
-        private static string X()
-        {
-            string x1 = "#";
-            string x2 = null;
-            x2 += x1;
-            return x2;
-        }
+            //Fill
+            private static string X()
+            {
+                string x1 = "#";
+                string x2 = null;
+                x2 += x1;
+                return x2;
+            }
 
-        private static string Y()
-        {
-            string y1 = "O";
-            string y2 = null;
+            //Whitespace1.1
+            private static string Y()
+            {
+                string y1 = " ";
+                string y2 = null;
 
-            y2 += y1;
-            return y2;
-        }
+                y2 += y1;
+                return y2;
+            }
+            
+            //Whitespace1.2
+            private static string Z(int i)
+            {
+                int z1 = i * 2;
+                int z4 = 6 - z1;
+                string z2 = " ";
+                string z3 = null;
 
-        private static string Z()
-        {
-            string z1 = "------";
-            int z2 = 2;
-            int z3 = z1.Length;
-     
-            z1 = z1.Substring(0, z3);
-            z3 = z3 - z2;
-            return z1;
-        }
+                for (int j = 0; j < z4; j++)
+            {
+                z3 += z2;
+            }
+            return z3;
+            }
 
     }
 }
