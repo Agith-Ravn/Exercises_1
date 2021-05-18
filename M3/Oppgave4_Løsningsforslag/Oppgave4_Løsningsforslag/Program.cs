@@ -11,8 +11,8 @@ namespace ThinkingLikeAProgrammerExercisesChapter3
         static void Main(string[] args)
         {
             //Exercise6();
-            //Exercise4and5(args[0] == "e", args[1]);
-            Exercise3();
+            Exercise4and5(args[0] == "e", args[1]);
+            //Exercise3();
         }
 
         private static void Exercise6()
