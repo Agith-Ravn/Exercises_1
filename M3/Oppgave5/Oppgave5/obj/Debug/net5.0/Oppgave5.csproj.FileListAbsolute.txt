@@ -1,0 +1,17 @@
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\bin\Debug\net5.0\ordliste.txt
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\bin\Debug\net5.0\Oppgave5.exe
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\bin\Debug\net5.0\Oppgave5.deps.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\bin\Debug\net5.0\Oppgave5.runtimeconfig.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\bin\Debug\net5.0\Oppgave5.runtimeconfig.dev.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\bin\Debug\net5.0\Oppgave5.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\bin\Debug\net5.0\ref\Oppgave5.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\bin\Debug\net5.0\Oppgave5.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\obj\Debug\net5.0\Oppgave5.csprojAssemblyReference.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\obj\Debug\net5.0\Oppgave5.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\obj\Debug\net5.0\Oppgave5.AssemblyInfoInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\obj\Debug\net5.0\Oppgave5.AssemblyInfo.cs
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\obj\Debug\net5.0\Oppgave5.csproj.CoreCompileInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\obj\Debug\net5.0\Oppgave5.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\obj\Debug\net5.0\ref\Oppgave5.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\obj\Debug\net5.0\Oppgave5.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave5\Oppgave5\obj\Debug\net5.0\Oppgave5.genruntimeconfig.cache

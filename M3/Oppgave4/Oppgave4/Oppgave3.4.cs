@@ -22,6 +22,16 @@ namespace Oppgave4
             Console.WriteLine(plainText);
         }
 
+        private object DecryptChar(object ciperText)
+        {
+            throw new NotImplementedException();
+        }
+
+        private object EncryptChar(string v)
+        {
+            throw new NotImplementedException();
+        }
+
         public static char EncryptChar(char x)
         {
             return EncryptOrDecryptChar(x, Alfabet, Cipher);
@@ -31,7 +41,6 @@ namespace Oppgave4
         {
             return EncryptOrDecryptChar(x, Cipher, Alfabet);
         }
-
 
         public static char EncryptOrDecryptChar(char x, string from, string to)
         {
