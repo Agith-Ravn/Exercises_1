@@ -19,27 +19,29 @@ namespace Oppgave5
             //Henter et tilfeldig ord med index ^
             var selectedWord = words[randomWordIndex];
             
-            Console.WriteLine("Valgt ord: "selectedWord);
+            Console.WriteLine("Valgt ord: " + selectedWord);
 
 
-            for (int i = 0; i < words.Length; i++)
-            {
-                if (i % 1000 == 0) Console.Write(".");
+            //for (int i = 0; i < words.Length; i++)
+            //{
+            //    if (i % 1000 == 0) Console.Write(".");
                 
-                //Is last part off first word equal to first part of second word?
-                if (X(selectedWord, words[i]))
-                {
-                    //(\n = new line)
-                    Console.WriteLine("\n" + words[i]);
-                    return;
-                }
-            }
+            //    //Is last part off first word equal to first part of second word?
+            //    if (X(selectedWord, words[i]))
+            //    {
+            //        //(\n = new line)
+            //        Console.WriteLine("\n" + words[i]);
+            //        return;
+            //    }
+            //}
         }
 
-        private static bool X(string selectedWord, string word)
-        {
-            throw new NotImplementedException();
-        }
+        //private static bool X(int commonLength, string word1, string word2)
+        //{
+
+        //    var lastPartOffFirstWord = word1.Substring(word1.Length - commonLength, commonLength);
+        //    var firstPartOfSecondWord = word2.Substring(0, commonLength);
+        //}
 
         static string[] GetWords()
         {
