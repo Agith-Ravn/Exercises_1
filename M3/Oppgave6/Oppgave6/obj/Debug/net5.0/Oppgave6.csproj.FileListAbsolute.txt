@@ -1,0 +1,16 @@
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\bin\Debug\net5.0\Oppgave6.exe
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\bin\Debug\net5.0\Oppgave6.deps.json
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\bin\Debug\net5.0\Oppgave6.runtimeconfig.json
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\bin\Debug\net5.0\Oppgave6.runtimeconfig.dev.json
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\bin\Debug\net5.0\Oppgave6.dll
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\bin\Debug\net5.0\ref\Oppgave6.dll
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\bin\Debug\net5.0\Oppgave6.pdb
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\obj\Debug\net5.0\Oppgave6.csprojAssemblyReference.cache
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\obj\Debug\net5.0\Oppgave6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\obj\Debug\net5.0\Oppgave6.AssemblyInfoInputs.cache
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\obj\Debug\net5.0\Oppgave6.AssemblyInfo.cs
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\obj\Debug\net5.0\Oppgave6.csproj.CoreCompileInputs.cache
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\obj\Debug\net5.0\Oppgave6.dll
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\obj\Debug\net5.0\ref\Oppgave6.dll
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\obj\Debug\net5.0\Oppgave6.pdb
+C:\Users\Visjon\source\repos\Oppgave6\Oppgave6\obj\Debug\net5.0\Oppgave6.genruntimeconfig.cache
