@@ -9,7 +9,7 @@ namespace Oppgave8._2
     {
         static void Main(string[] args)
         {
-            //Lager objekter av class? 
+            //Lager en instance/object av class
             var boardModel = new BoardModel();
 
             while (true)
@@ -26,17 +26,29 @@ namespace Oppgave8._2
         }
     }
 
+    //Det er denne som blir laget instance av (til linje 12). Tenk på det som en kopi av koden under.
+    //Så hvis du foreksempel lager 12 instance i array, så lager du 12 kopier av det under? (tippe 12 kamper oppgave)
     class BoardModel
     {
-        //Deklarert tomme variabler?
-        public bool IsGameStopped { get; private set; } //Bool
+        //Deklarert tom bool (true/false) variabler? Kan nås fram, men ikke sette verdi.
+        public bool IsGameStopped { get; private set; } 
+
+        //Lager en tom array av CellContent (class) som heter Content. Kan nås fram, men ikke sette verdi.
         public CellContent[] Content { get; private set; }
+
+        //Random nummer generator som kalles for _random. privat og kan kun leses.
         private readonly Random _random = new Random();
+
+        //Lager en tom array av Combination (class) som heter _winningCombinations.
         private Combination[] _winningCombinations;
 
+        //BoardModel public Method
         public BoardModel()
         {
+            //Legger 9 instance/objekter av CellContent inn i Content array
             Content = new CellContent[9];
+
+            //Ny array til alle instance av Combination ?
             _winningCombinations = new[]
             {
                 new Combination(Content, 0, 1, 2),
@@ -52,6 +64,7 @@ namespace Oppgave8._2
 
         public CellContent IsWinning()
         {
+
             return _winningCombinations.Select(c => c.IsWinning()).FirstOrDefault(x => x != CellContent.None);
         }
 
@@ -128,9 +141,12 @@ namespace Oppgave8._2
 
     class Combination
     {
+        //Tomme int variabler
         private readonly int _index1;
         private readonly int _index2;
         private readonly int _index3;
+
+        //Tom array
         private readonly CellContent[] _cells;
 
         public Combination(CellContent[] cells, int index1, int index2, int index3)
