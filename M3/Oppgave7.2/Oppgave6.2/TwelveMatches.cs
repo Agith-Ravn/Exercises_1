@@ -4,8 +4,10 @@ namespace Oppgave6._2
 {
     public class TwelveMatches
     {
-        //tom array til senere bruk
+        //Lager en array av Match
         private Match[] _matches;
+
+        //public String[] test; <- Dette er en array av string
 
         int correctCount = 0;
 

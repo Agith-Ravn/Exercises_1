@@ -9,7 +9,7 @@ namespace Oppgave6._2
             //Egen class object til output
             var outputText = new OutputText();
 
-            outputText.Info();
+            Console.WriteLine(outputText.Info());
 
             //Input felt til alle 12 tipper
             var betsText = Console.ReadLine();
@@ -21,7 +21,7 @@ namespace Oppgave6._2
                 //Kjøres til det kommer en break;
                 while (true)
                 {
-                    outputText.AddGoalInfo();
+                    Console.WriteLine(outputText.AddGoalInfo());
                     var command = Console.ReadLine();
 
                     //Hvis commands er X -> break

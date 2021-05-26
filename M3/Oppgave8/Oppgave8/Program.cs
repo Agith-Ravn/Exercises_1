@@ -16,10 +16,11 @@ namespace Oppgave8
     {
         static void Main(string[] args)
         {
-            var info = new Info();
-            info.GameInfo();
+            //var info = new Info();
+            GameInfo();
 
-            var view = new View();
+            //var view = new View();
+            //var test = new Test();
 
             while (true)
             {
@@ -36,9 +37,11 @@ namespace Oppgave8
                     //Console.WriteLine("Gyldig");
                     //firstIndex;
                     //secondIndex;
-                    var test = new Test();
-                    test.PlacePiece(firstIndex, secondIndex);
-                    view.UpdateView();
+                    
+                    PlacePiece(firstIndex, secondIndex);
+                    UpdateView();
+                    ComputerPlacePiece();
+                    //UpdateView();
                 }
                 else
                 {
@@ -46,39 +49,17 @@ namespace Oppgave8
                 }
             }
         }
-    }
 
-    class Test
-    {
-        public void PlacePiece(char first, char second)
+        public static void GameInfo()
         {
-            var cell = new Cell();
-
-            string test = first.ToString() + second.ToString();
-            if (test == "A1") cell.cells[0] = 'x';
-            if (test == "B1") cell.cells[1] = 'x';
-            if (test == "C1") cell.cells[2] = 'x';
-            if (test == "A2") cell.cells[3] = 'x';
-            if (test == "B2") cell.cells[4] = 'x';
-            if (test == "C2") cell.cells[5] = 'x';
-            if (test == "A3") cell.cells[6] = 'x';
-            if (test == "B3") cell.cells[7] = 'x';
-            if (test == "C3") cell.cells[8] = 'x';
-        }
-    }
-
-    class Info
-    {
-        public void GameInfo()
-        {
-            Console.WriteLine("Tre på rad - Skriv inn hvor du vil sette x. Eksempel A2 osv: \n"+
-                "    A  B  C     \n" +
-                "  ┌─────────┐   \n" +
-                "  │         │ 1 \n" +
-                "  │         │ 2 \n" +
-                "  │         │ 3 \n" +
-                "  └─────────┘ "
-                );
+            Console.WriteLine("Tre på rad - Skriv inn hvor du vil sette x. Eksempel A2 osv: \n" +
+                              "    A  B  C     \n" +
+                              "  ┌─────────┐   \n" +
+                              "  │         │ 1 \n" +
+                              "  │         │ 2 \n" +
+                              "  │         │ 3 \n" +
+                              "  └─────────┘ "
+            );
 
 
             //Console.WriteLine("" +
@@ -92,32 +73,69 @@ namespace Oppgave8
 
             //  );
         }
+
+        public static void PlacePiece(char first, char second)
+        {
+            //var cell = new Cell();
+
+            string test = first.ToString() + second.ToString();
+            if (test == "A1") cells[0] = 'x';
+            if (test == "B1") cells[1] = 'x';
+            if (test == "C1") cells[2] = 'x';
+            if (test == "A2") cells[3] = 'x';
+            if (test == "B2") cells[4] = 'x';
+            if (test == "C2") cells[5] = 'x';
+            if (test == "A3") cells[6] = 'x';
+            if (test == "B3") cells[7] = 'x';
+            if (test == "C3") cells[8] = 'x';
+
+
+        }
+
+        // 1    2    3    4    5    6    7    8    9
+        public static char[] cells = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+
+        public static void UpdateView()
+        {
+            //var cell = new Cell();
+
+            Console.WriteLine("" +
+
+              "    A  B  C     \n" +
+              "  ┌─────────┐   \n" +
+              $"  │ {cells[0]}  {cells[1]}  {cells[2]} │ 1 \n" +
+              $"  │ {cells[3]}  {cells[4]}  {cells[5]} │ 2 \n" +
+              $"  │ {cells[6]}  {cells[7]}  {cells[8]} │ 3 \n" +
+              "  └─────────┘ "
+
+            );
+        }
+
+        private static void ComputerPlacePiece()
+        {
+            
+        }
+    }
+
+    class Test
+    {
+
+    }
+
+    class Info
+    {
+
     }
 
     class Cell
     {                        
-                             // 1    2    3    4    5    6    7    8    9
-        public char[] cells = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+
 
     }
 
     class View
     {
-        public void UpdateView()
-        {
-            var cell = new Cell();
-        
-            Console.WriteLine("" +
 
-              "    A  B  C     \n" +
-              "  ┌─────────┐   \n" +
-              $"  │ {cell.cells[0]}  {cell.cells[1]}  {cell.cells[2]} │ 1 \n" +
-              $"  │ {cell.cells[3]}  {cell.cells[4]}  {cell.cells[5]} │ 2 \n" +
-              $"  │ {cell.cells[6]}  {cell.cells[7]}  {cell.cells[8]} │ 3 \n" +
-              "  └─────────┘ "
-
-            );
-        }
     }
 }
 

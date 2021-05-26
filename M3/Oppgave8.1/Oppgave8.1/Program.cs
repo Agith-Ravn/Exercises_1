@@ -30,11 +30,12 @@ namespace Oppgave8._1
 
     public class BoardModel
     {
+        //????? Hva skjer her ???
         public CellModel[] Cells { get; }
         private readonly Random _random;
 
-        public BoardModel()
-        {
+
+        public BoardModel() {
 
             Cells = new CellModel[9];
             for (int i = 0; i < Cells.Length; i++)
@@ -93,6 +94,7 @@ namespace Oppgave8._1
         }
     }
 
+    //???
     public class CellModel
     {
         /* Vi har bestemt

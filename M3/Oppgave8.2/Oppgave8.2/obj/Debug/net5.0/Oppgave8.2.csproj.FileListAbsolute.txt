@@ -1,0 +1,16 @@
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\bin\Debug\net5.0\Oppgave8.2.exe
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\bin\Debug\net5.0\Oppgave8.2.deps.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\bin\Debug\net5.0\Oppgave8.2.runtimeconfig.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\bin\Debug\net5.0\Oppgave8.2.runtimeconfig.dev.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\bin\Debug\net5.0\Oppgave8.2.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\bin\Debug\net5.0\ref\Oppgave8.2.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\bin\Debug\net5.0\Oppgave8.2.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\obj\Debug\net5.0\Oppgave8.2.csprojAssemblyReference.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\obj\Debug\net5.0\Oppgave8.2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\obj\Debug\net5.0\Oppgave8.2.AssemblyInfoInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\obj\Debug\net5.0\Oppgave8.2.AssemblyInfo.cs
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\obj\Debug\net5.0\Oppgave8.2.csproj.CoreCompileInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\obj\Debug\net5.0\Oppgave8.2.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\obj\Debug\net5.0\ref\Oppgave8.2.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\obj\Debug\net5.0\Oppgave8.2.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.2\Oppgave8.2\obj\Debug\net5.0\Oppgave8.2.genruntimeconfig.cache
