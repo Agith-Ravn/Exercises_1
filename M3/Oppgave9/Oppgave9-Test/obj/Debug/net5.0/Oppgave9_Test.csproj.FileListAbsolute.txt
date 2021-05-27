@@ -103,3 +103,9 @@ C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\obj\Debug
 C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\obj\Debug\net5.0\ref\Oppgave9_Test.dll
 C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\obj\Debug\net5.0\Oppgave9_Test.pdb
 C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\obj\Debug\net5.0\Oppgave9_Test.genruntimeconfig.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\bin\Debug\net5.0\Oppgave9_Test.dll.config
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\bin\Debug\net5.0\Microsoft.Data.Tools.Schema.Sql.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\bin\Debug\net5.0\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\bin\Debug\net5.0\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\bin\Debug\net5.0\Microsoft.Data.Tools.Utilities.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave9\Oppgave9-Test\bin\Debug\net5.0\Microsoft.SqlServer.TransactSql.ScriptDom.dll

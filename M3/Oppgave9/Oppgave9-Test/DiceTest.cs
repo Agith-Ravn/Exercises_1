@@ -13,8 +13,13 @@ namespace Oppgave9_Test
         [Test]
         public void TestRoll()
         {
+            //Lager instance/object av Dice
             var dice = new Dice();
+
+            //Kjører object method
             dice.Roll();
+
+            //Kjører dice.number (tilfeldig tall mellom 1-6)
             var number1 = dice.Number;
             dice.Roll();
             var number2 = dice.Number;
