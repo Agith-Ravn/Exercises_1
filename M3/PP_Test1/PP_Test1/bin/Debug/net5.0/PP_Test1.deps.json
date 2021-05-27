@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "PP_Test1/1.0.0": {
+        "runtime": {
+          "PP_Test1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PP_Test1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

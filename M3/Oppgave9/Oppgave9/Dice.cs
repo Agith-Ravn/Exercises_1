@@ -6,6 +6,15 @@ namespace Oppgave9
     {
         public int Number { get; private set; }
 
+        public Dice() : this(6)
+        {
+        }
+
+        public Dice(int value)
+        {
+            Number = value;
+        }
+
         public void Roll()
         {
                         //Hvorfor .instance.GetRandom??
