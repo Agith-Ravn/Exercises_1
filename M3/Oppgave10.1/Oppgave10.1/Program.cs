@@ -74,12 +74,12 @@ namespace Oppgave10._1
 
         private static string GetRandomLowerCaseLetter()
         {
-            return GetRandomLetter('a', 'z').ToString(); ;
+            return GetRandomLetter('a', 'z').ToString();
         }
 
         private static string GetRandomUpperCaseLetter()
         {
-            return GetRandomLetter('A', 'Z').ToString(); ;
+            return GetRandomLetter('A', 'Z').ToString();
         }
 
         static char GetRandomLetter(char min, char max)
