@@ -1,0 +1,5 @@
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig1\PersonTest\obj\Debug\net5.0\Oblig1_Test.csprojAssemblyReference.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig1\PersonTest\obj\Debug\net5.0\Oblig1_Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig1\PersonTest\obj\Debug\net5.0\Oblig1_Test.AssemblyInfoInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig1\PersonTest\obj\Debug\net5.0\Oblig1_Test.AssemblyInfo.cs
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig1\PersonTest\obj\Debug\net5.0\Oblig1_Test.csproj.CoreCompileInputs.cache
