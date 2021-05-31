@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Oblig1
 {
@@ -49,8 +50,5 @@ namespace Oblig1
             if (Mother != null) description += $"Mor: {Mother.FirstName} (Id={Mother.Id}) ";
             return description.TrimEnd();
         }
-
-
-
     }
 }

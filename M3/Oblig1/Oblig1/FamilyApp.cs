@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Oblig1
 {
@@ -32,7 +33,7 @@ namespace Oblig1
         //constructor (array av alle personer)
         public FamilyApp(params Person[] people)
         {
-            _people = new List<Person>(people); //Hvordan fungerer denne?
+            _people = new List<Person>(people); //Hvordan fungerer denne? Når man debugger, ser det ut som den får alle verdiene fra array?
         }
 
 
@@ -51,7 +52,6 @@ namespace Oblig1
         public object HandleCommand(string command)
         {
             var expectedResponse = "";
-
             if (command == "hjelp")
             {
                 expectedResponse = WelcomeMessage();
@@ -63,6 +63,44 @@ namespace Oblig1
                     expectedResponse += person.GetDescription() + "\n";
                 }
             }
+            else if (command.Contains(" "))
+            {
+                string[] command2 = command.Split(" ");
+                string vis = command2[0];
+                int id = Convert.ToInt32(command2[1]);
+                
+                foreach (var person in _people)
+                {
+                    if (id == person.Id)
+                    {
+                        expectedResponse += person.GetDescription() + "\n";
+
+                        if (getChildren(person) != null)
+                        {
+                            expectedResponse += "  Barn:\n";
+                            foreach (var child in getChildren(person))
+                            {
+                                expectedResponse += $"    {child.FirstName} (Id={child.Id}) Født: {child.BirthYear}\n";
+                            }
+                           
+                        }
+
+
+
+                        //person.getChildren();
+                        //if person.Father.FirstName
+                        //Hvordan finne barna?
+                        //person.Father.FirstName
+                        //hvis y sin mor og far er x, så er x sine barn y
+                    }
+                }
+
+                if (expectedResponse == "") expectedResponse = "Finner ikke person";
+            }
+            else
+            {
+                expectedResponse = "Ugydlig kommando.. prøv igjen";
+            }
 
             return expectedResponse;
 
@@ -70,6 +108,21 @@ namespace Oblig1
             //                       + "  Barn:\n"
             //                       + $"    {Sverre Magnus }{(Id=1) }{Født: 2005}\n"
             //                       + $"    {Ingrid Alexandra }{(Id=2) }{Født: 2004}\n";
+        }
+
+        public Person[] getChildren(Person parent)
+        {
+            List<Person> children = new List<Person>();
+            foreach (var person in _people)
+            {
+                if (person.Father == parent || person.Mother == parent)
+                {
+                    children.Add(person);
+                }
+            }
+
+            Person[] children2 = children.ToArray();
+            return children2;
         }
     }
 }
