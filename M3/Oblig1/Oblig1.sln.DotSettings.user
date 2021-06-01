@@ -9,5 +9,6 @@
     &lt;TestId&gt;NUnit3x::6FB3FAD0-CA13-410C-88FB-079D7CD40024::net5.0::PersonTest.Tests.TestNoFields&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::6FB3FAD0-CA13-410C-88FB-079D7CD40024::net5.0::PersonTest.Tests.MyOwnTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::6FB3FAD0-CA13-410C-88FB-079D7CD40024::net5.0::FamilyAppTest.Tests.Test&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::6FB3FAD0-CA13-410C-88FB-079D7CD40024::net5.0::FamilyAppTest.Tests.Test2&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

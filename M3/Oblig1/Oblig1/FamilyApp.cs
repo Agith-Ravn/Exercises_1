@@ -33,7 +33,7 @@ namespace Oblig1
         //constructor (array av alle personer)
         public FamilyApp(params Person[] people)
         {
-            _people = new List<Person>(people); //Hvordan fungerer denne? Når man debugger, ser det ut som den får alle verdiene fra array?
+            _people = new List<Person>(people); //Hvordan fungerer denne? ser det ut som den får alle verdiene fra array?
         }
 
 
@@ -68,14 +68,20 @@ namespace Oblig1
                 string[] command2 = command.Split(" ");
                 string vis = command2[0];
                 int id = Convert.ToInt32(command2[1]);
-                
+
+
+                //var expectedResponse = $"{Haakon Magnus }{(Id=3) }{Født: 1973 }{Far: Harald }{(Id=6)}\n"
+                //                       + "  Barn:\n"
+                //                       + $"    {Sverre Magnus }{(Id=1) }{Født: 2005}\n"
+                //                       + $"    {Ingrid Alexandra }{(Id=2) }{Født: 2004}\n";
+
                 foreach (var person in _people)
                 {
                     if (id == person.Id)
                     {
                         expectedResponse += person.GetDescription() + "\n";
 
-                        if (getChildren(person) != null)
+                        if (getChildren(person).Length != 0)
                         {
                             expectedResponse += "  Barn:\n";
                             foreach (var child in getChildren(person))
@@ -84,14 +90,6 @@ namespace Oblig1
                             }
                            
                         }
-
-
-
-                        //person.getChildren();
-                        //if person.Father.FirstName
-                        //Hvordan finne barna?
-                        //person.Father.FirstName
-                        //hvis y sin mor og far er x, så er x sine barn y
                     }
                 }
 
@@ -103,11 +101,6 @@ namespace Oblig1
             }
 
             return expectedResponse;
-
-            //var expectedResponse = $"{Haakon Magnus }{(Id=3) }{Født: 1973 }{Far: Harald }{(Id=6)}\n"
-            //                       + "  Barn:\n"
-            //                       + $"    {Sverre Magnus }{(Id=1) }{Født: 2005}\n"
-            //                       + $"    {Ingrid Alexandra }{(Id=2) }{Født: 2004}\n";
         }
 
         public Person[] getChildren(Person parent)
