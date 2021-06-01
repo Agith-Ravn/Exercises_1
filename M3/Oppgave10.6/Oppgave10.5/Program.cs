@@ -8,13 +8,7 @@ namespace Oppgave10._5
         {
             Console.Write("Gyldig tips: \r\n - H, U, B\r\n - halvgardering: HU, HB, UB\r\n - helgardering: HUB\r\nSkriv inn dine 12 tips med komma mellom: ");
             var betsText = Console.ReadLine();
-            var bets = betsText.Split(',');
-            var matches = new Match[12]; //Lager 12 objecter
-
-            for (var i = 0; i < 12; i++)
-            {
-                matches[i] = new Match(bets[i]); //
-            }
+            var matches = new TwelveMatches(betsText);
 
             while (true)
             {
@@ -24,21 +18,10 @@ namespace Oppgave10._5
                 var matchNo = Convert.ToInt32(command);
                 Console.Write($"Scoring i kamp {matchNo}. \r\nSkriv H for hjemmelag eller B for bortelag: ");
                 var team = Console.ReadLine();
-                var selectedIndex = matchNo - 1;
-                var selectedMatch = matches[selectedIndex];
-                selectedMatch.AddGoal(team == "H");
-                var correctCount = 0;
-                for (var index = 0; index < matches.Length; index++)
-                {
-                    var match = matches[index];
-                    var mathNo = index + 1;
-                    var isBetCorrect = match.IsBetCorrect();
-                    var isBetCorrectText = isBetCorrect ? "riktig" : "feil";
-                    if (isBetCorrect) correctCount++;
-                    Console.WriteLine($"Kamp {matchNo}: {match.GetScore()} - {isBetCorrectText}");
-                }
 
-                Console.WriteLine($"Du har {correctCount} rette.");
+                matches.AddGoal(matchNo, command);
+                matches.showAllScores();
+                matches.showCorrectScore();
             }
             
             //Console.Write("Gyldig tips: \r\n - H, U, B\r\n - halvgardering: HU, HB, UB\r\n - helgardering: HUB\r\nHva har du tippet for denne kampen? ");

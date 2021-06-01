@@ -22,3 +22,11 @@ C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\obj\Debu
 C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\obj\Debug\net5.0\Oppgave10.5.dll
 C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\obj\Debug\net5.0\ref\Oppgave10.5.dll
 C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\obj\Debug\net5.0\Oppgave10.5.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\bin\Debug\net5.0\Oppgave10.5.exe
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\bin\Debug\net5.0\Oppgave10.5.deps.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\bin\Debug\net5.0\Oppgave10.5.runtimeconfig.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\bin\Debug\net5.0\Oppgave10.5.runtimeconfig.dev.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\bin\Debug\net5.0\Oppgave10.5.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\bin\Debug\net5.0\ref\Oppgave10.5.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\bin\Debug\net5.0\Oppgave10.5.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave10.6\Oppgave10.5\obj\Debug\net5.0\Oppgave10.5.genruntimeconfig.cache

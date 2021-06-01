@@ -20,31 +20,34 @@
             {
                 homeGoals++;
             }
+
             if (command == "B")
             {
-                 awayGoals++;
+                awayGoals++;
             }
         }
 
-        public string IsBetCorrect(string result)
+        public bool IsBetCorrect()
         {
-            var isBetCorrectText = "";
-            var isBetCorrect = bet.Contains(result);
-            return isBetCorrectText = isBetCorrect ? "riktig" : "feil";
+            //var isBetCorrectText = "";
+            //var isBetCorrect = bet.Contains(result);
+            //return isBetCorrectText = isBetCorrect ? "riktig" : "feil";
 
+            var result = homeGoals == awayGoals ? "U" : homeGoals > awayGoals ? "H" : "B";
+            return bet.Contains(result); //Husk! returnerer true.
         }
 
-        public void Stop(string? command)
-        {
-            if (command != "X")
-            {
-                IsRunning = false;
-            }
-        }
+        //public void Stop(string? command)
+        //{
+        //    if (command != "X")
+        //    {
+        //        return break;
+        //    }
+
 
         public string GetScore()
         {
-            return homeGoals == awayGoals ? "U" : homeGoals > awayGoals ? "H" : "B";
+            return homeGoals + "-" + awayGoals;
         }
     }
 }
