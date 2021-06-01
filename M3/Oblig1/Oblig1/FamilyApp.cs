@@ -5,32 +5,12 @@ namespace Oblig1
 {
     public class FamilyApp
     {
-        //private readonly Person SverreMagnus;
-        //private readonly Person IngridAlexandra;
-        //private readonly Person Haakon;
-        //private readonly Person MetteMarit;
-        //private readonly Person Marius;
-        //private readonly Person Harald;
-        //private readonly Person Sonja;
-        //private readonly Person Olav;
-
-        //public FamilyApp(Person sverreMagnus, Person ingridAlexandra, Person haakon, Person metteMarit, Person marius, Person harald, Person sonja, Person olav)
-        //{
-        //    this.SverreMagnus = sverreMagnus;
-        //    this.IngridAlexandra = ingridAlexandra;
-        //    this.Haakon = haakon;
-        //    this.MetteMarit = metteMarit;
-        //    this.Marius = marius;
-        //    this.Harald = harald;
-        //    this.Sonja = sonja;
-        //    this.Olav = olav;
         
-
         //isteden for å skrive alt over^ 
-        //List av person object
+        //List av alle person object
         private readonly List<Person> _people;
 
-        //constructor (array av alle personer)
+        //Gjør om array til liste
         public FamilyApp(params Person[] people)
         {
             _people = new List<Person>(people); //Hvordan fungerer denne? ser det ut som den får alle verdiene fra array?
@@ -114,6 +94,7 @@ namespace Oblig1
                 }
             }
 
+            //Liste fungerer ikke.. kun array. hvorfor?
             Person[] children2 = children.ToArray();
             return children2;
         }
