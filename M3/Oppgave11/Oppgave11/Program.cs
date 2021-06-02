@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Oppgave10._7
+namespace Oppgave11
 {
     class Program
     {

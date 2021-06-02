@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave10.7\\Oppgave10.7\\Oppgave10.7.csproj": {}
+    "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave11\\Oppgave11\\Oppgave11.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave10.7\\Oppgave10.7\\Oppgave10.7.csproj": {
+    "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave11\\Oppgave11\\Oppgave11.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave10.7\\Oppgave10.7\\Oppgave10.7.csproj",
-        "projectName": "Oppgave10.7",
-        "projectPath": "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave10.7\\Oppgave10.7\\Oppgave10.7.csproj",
+        "projectUniqueName": "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave11\\Oppgave11\\Oppgave11.csproj",
+        "projectName": "Oppgave11",
+        "projectPath": "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave11\\Oppgave11\\Oppgave11.csproj",
         "packagesPath": "C:\\Users\\Visjon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave10.7\\Oppgave10.7\\obj\\",
+        "outputPath": "C:\\Users\\Visjon\\Documents\\GitHub\\GET_Academy\\M3\\Oppgave11\\Oppgave11\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Visjon\\AppData\\Roaming\\NuGet\\NuGet.Config",
