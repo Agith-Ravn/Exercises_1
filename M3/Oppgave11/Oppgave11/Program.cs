@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Oppgave11
 {
@@ -6,7 +7,20 @@ namespace Oppgave11
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            //!! SKRIV NED DETTE I NOTATER !!
+            Rectangle[] rectangle = new Rectangle[]
+            {
+                new Rectangle(7, 3),
+                new Rectangle(7,5),
+                new Rectangle(7,5),
+
+            };
+
+            // velger alle rectangle => kjører alle rectangle.Area ?? Usikker på =>
+            var totalArea = rectangle.Sum(r => r.Area);
+            Console.WriteLine(totalArea);
+
         }
     }
 }
