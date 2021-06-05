@@ -22,9 +22,10 @@ namespace Oppgave8._3
 
                 boardModel.SettSpiller1(index);
                 BoardView.Show(boardModel);
-                BoardView.Show(boardModel);
                 Thread.Sleep(700);
                 var success = boardModel.SettRandomSpiller2();
+
+                //Hvis SettRandomSpiller2 returnerer false, stop
                 if (!success) return;
             }
 

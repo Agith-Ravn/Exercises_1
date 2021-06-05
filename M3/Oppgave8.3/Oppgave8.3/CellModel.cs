@@ -28,9 +28,10 @@
 
         public void Mark(bool Spiller1)
         {
-            //Hvis TomRute == false, returner
+            //Hvis rute ikke er tom returner
             if (!TomRute()) return;
 
+            //Hvis rute er tom +
             //hvis den er sant, sjekk spiller om det er sant. send 1 til innholdIRute om det er sant
             //ellers 2 til innholdIRute
             innholdIRute = Spiller1 ? 1 : 2;
