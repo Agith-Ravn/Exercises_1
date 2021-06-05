@@ -18,14 +18,16 @@ namespace Oppgave8._3
         }
 
         //Husk! Static blir brukt når du ikke skal lage object/instance av en klasse
-        private static GetChar(BoardModel boardModel, int index)
+        private static char GetChar(BoardModel boardModel, int index)
         {
             //Finner riktig object med index
             var cell = boardModel.Cells[index];
 
             //Setter i gang cell sin method (IsEmpty)
-            //Hvis 
-            if (cell.IsEmpty()) return ' ';
+            //Hvis rute er tom (returnerer true) > return ' ';
+            if (cell.TomRute()) return ' ';
+            else if (cell.Spiller1()) return 'x';
+            else return 'o';
         }
     }
 }

@@ -16,19 +16,26 @@
             innholdIRute = 0;
         }
 
-        public bool tomRute()
+        public bool TomRute()
         {
             return innholdIRute == 0;
         }
 
-        public bool spiller1()
+        public bool Spiller1()
         {
             return innholdIRute == 1;
         }
 
-        public bool spiller2()
+        public void Mark(bool Spiller1)
         {
-            return innholdIRute == 2;
+            //Hvis TomRute == false, returner
+            if (!TomRute()) return;
+
+            //hvis den er sant, sjekk spiller om det er sant. send 1 til innholdIRute om det er sant
+            //ellers 2 til innholdIRute
+            innholdIRute = Spiller1 ? 1 : 2;
+
+            //return innholdIRute == 2;
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Oppgave8._3
 {
@@ -13,7 +14,18 @@ namespace Oppgave8._3
                 BoardView.Show(boardModel);
                 Console.Write("Skriv inn hvor du vil sette kryss (f.eks. \"a2\"): ");
                 var position = Console.ReadLine();
-                boardModel.SetCross(position);
+
+                //Hva gjør disse under?
+                var col = position[0] - 'a';
+                var row = position[1] - '1';
+                var index = row * 3 + col;
+
+                boardModel.SettSpiller1(index);
+                BoardView.Show(boardModel);
+                BoardView.Show(boardModel);
+                Thread.Sleep(700);
+                var success = boardModel.SettRandomSpiller2();
+                if (!success) return;
             }
 
 
