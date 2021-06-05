@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Oppgave8.4/1.0.0": {
+        "runtime": {
+          "Oppgave8.4.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Oppgave8.4/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

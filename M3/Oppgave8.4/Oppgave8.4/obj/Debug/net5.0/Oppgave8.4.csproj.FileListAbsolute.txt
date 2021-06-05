@@ -1,0 +1,16 @@
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\obj\Debug\net5.0\Oppgave8.4.csprojAssemblyReference.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\obj\Debug\net5.0\Oppgave8.4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\obj\Debug\net5.0\Oppgave8.4.AssemblyInfoInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\obj\Debug\net5.0\Oppgave8.4.AssemblyInfo.cs
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\obj\Debug\net5.0\Oppgave8.4.csproj.CoreCompileInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\bin\Debug\net5.0\Oppgave8.4.exe
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\bin\Debug\net5.0\Oppgave8.4.deps.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\bin\Debug\net5.0\Oppgave8.4.runtimeconfig.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\bin\Debug\net5.0\Oppgave8.4.runtimeconfig.dev.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\bin\Debug\net5.0\Oppgave8.4.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\bin\Debug\net5.0\ref\Oppgave8.4.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\bin\Debug\net5.0\Oppgave8.4.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\obj\Debug\net5.0\Oppgave8.4.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\obj\Debug\net5.0\ref\Oppgave8.4.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\obj\Debug\net5.0\Oppgave8.4.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave8.4\Oppgave8.4\obj\Debug\net5.0\Oppgave8.4.genruntimeconfig.cache
