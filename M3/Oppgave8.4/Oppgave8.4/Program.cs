@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Oppgave8._4
 {
@@ -13,7 +14,9 @@ namespace Oppgave8._4
                 Console.Write("Skriv inn hvor du vil sette kryss (f.eks. \"a2\"): ");
                 var position = Console.ReadLine();
                 boardModel.SetCross(position);
-                //break;
+                BoardView.UpdateView(boardModel);
+                Thread.Sleep(2000);
+                boardModel.SetRandomCircle();
             }
         }
     }

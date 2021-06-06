@@ -1,22 +1,38 @@
-﻿namespace Oppgave8._4
+﻿using System;
+
+namespace Oppgave8._4
 {
     public class CellModel
     {
-        private char InnholdIRute;
-
-        public void TomRute()
+        public char InnholdIRute = ' ';
+        public void SettInnholdIRute(char brikke)
         {
-            
+            if (SjekkOmRuteErTom())
+            {
+                InnholdIRute = brikke;
+            }
         }
 
-        public void Spiller1()
+        private bool SjekkOmRuteErTom()
         {
-
+            //Hvis rute er ' ' (tom) eller IKKE har x eller o
+            if (TomRute() && !Spiller1() && !Spiller2()) return true;
+            else return false;
         }
 
-        public void Spiller2()
+        public bool TomRute()
         {
+            return InnholdIRute == ' ';
+        }
 
+        public bool Spiller1()
+        {
+            return InnholdIRute == '×';
+        }
+
+        public bool Spiller2()
+        {
+            return InnholdIRute == 'o';
         }
 
 

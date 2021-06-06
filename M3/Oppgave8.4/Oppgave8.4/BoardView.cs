@@ -17,10 +17,8 @@ namespace Oppgave8._4
 
         public static char GetCellContent(BoardModel boardModel, int index)
         {
-            return 'x'; //< midlertidig 
+            var cell = boardModel.cells[index];
+            return cell.InnholdIRute;
         }
     }
 }
-
-//o
-//×
