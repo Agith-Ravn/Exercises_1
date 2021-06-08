@@ -2,12 +2,14 @@
 
 namespace RandomBoxes
 {
-    class Rectangle : Shape
+    class Rectangle : Shape //Rectangle arver shape class
     {
+        //lagrer info om rectangle
         public int Width { get; private set; }
         public int Height { get; private set; }
         private int _minimumSize = 3;
 
+        //constructor
         public Rectangle(Random random, int maxX, int maxY)
             : base(random)
         {
@@ -17,6 +19,7 @@ namespace RandomBoxes
             Height = random.Next(_minimumSize, maxY - Y);
         }
 
+        //constrcutor
         public Rectangle(int x, int y, int width, int height)
         {
             X = x;
@@ -25,6 +28,9 @@ namespace RandomBoxes
             Height = height;
         }
 
+        //overrider GetCharacter method
+        //mottar row + col verdi
+        //Method brukes til å lage selve rectangel formen
         public override string GetCharacter(int row, int col)
         {
             // Top left corner

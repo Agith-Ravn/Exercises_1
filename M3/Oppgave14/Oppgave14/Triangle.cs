@@ -2,11 +2,13 @@
 
 namespace RandomBoxes
 {
-    class Triangle : Shape
+    class Triangle : Shape //Triangle arver shape class 
     {
+        //Lagre info om triangle
         public int Size { get; private set; }
         private int _minimumSize = 1;
 
+        //constructor
         public Triangle(int x, int y, int size)
         {
             X = x;
@@ -14,6 +16,7 @@ namespace RandomBoxes
             Size = size;
         }
 
+        //constructor
         public Triangle(Random random, int maxSize)
             : base(random)
         {
@@ -22,6 +25,9 @@ namespace RandomBoxes
             Y = random.Next(0, maxSize - Size); ;
         }
 
+        //overrider GetCharacter method
+        //mottar row + col verdi
+        //Method brukes til å lage triangle formen
         public override string GetCharacter(int row, int col)
         {
             if (row < Y || col < X - 1) return null;
