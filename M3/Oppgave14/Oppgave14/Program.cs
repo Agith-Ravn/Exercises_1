@@ -39,7 +39,6 @@ namespace RandomBoxes
             //Lager 5 objecter > legger dem i shapes
             var shapes = new Shape[5];
 
-            //Hvorfor random????????????????????
             shapes[0] = new Text(10, 5, "Hurra!", random);
 
             for (var i = 0; i < shapes.Length; i++)

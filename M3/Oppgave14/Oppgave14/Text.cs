@@ -6,7 +6,7 @@ namespace RandomBoxes
     {
         private string TextSomSkalVises { get; set; }
 
-        //??????? hva skjer med base her
+        //base henter random fra parameter og legger det inn i base(shape) random
         public Text(int x, int y, string text, Random random) : base(random)
         {
             X = x;
