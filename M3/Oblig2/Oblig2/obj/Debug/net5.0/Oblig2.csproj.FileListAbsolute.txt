@@ -1,0 +1,16 @@
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\bin\Debug\net5.0\Oblig2.exe
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\bin\Debug\net5.0\Oblig2.deps.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\bin\Debug\net5.0\Oblig2.runtimeconfig.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\bin\Debug\net5.0\Oblig2.runtimeconfig.dev.json
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\bin\Debug\net5.0\Oblig2.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\bin\Debug\net5.0\ref\Oblig2.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\bin\Debug\net5.0\Oblig2.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\obj\Debug\net5.0\Oblig2.csprojAssemblyReference.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\obj\Debug\net5.0\Oblig2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\obj\Debug\net5.0\Oblig2.AssemblyInfoInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\obj\Debug\net5.0\Oblig2.AssemblyInfo.cs
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\obj\Debug\net5.0\Oblig2.csproj.CoreCompileInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\obj\Debug\net5.0\Oblig2.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\obj\Debug\net5.0\ref\Oblig2.dll
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\obj\Debug\net5.0\Oblig2.pdb
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oblig2\Oblig2\obj\Debug\net5.0\Oblig2.genruntimeconfig.cache
