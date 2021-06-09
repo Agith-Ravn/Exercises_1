@@ -5,7 +5,7 @@ namespace Oblig2
     public class Bishop : Piece
     {
         //Base = sender informasjon fra parameter til symbol i Piece class (class som blir arvet)
-        public Bishop(string symbol) : base(symbol)
+        public Bishop() : base("LPR")
         {
         }
 

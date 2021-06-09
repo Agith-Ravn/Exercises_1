@@ -5,7 +5,7 @@ namespace Oblig2
     public class Rook : Piece
     {
         //Base = sender informasjon fra parameter til symbol i Piece class (class som blir arvet)
-        public Rook(string symbol) : base(symbol)
+        public Rook() : base("TRN")
         {
         }
 
