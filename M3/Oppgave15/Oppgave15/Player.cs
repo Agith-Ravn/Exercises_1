@@ -15,21 +15,18 @@ namespace Oppgave15
 
         public void Play(Player player2, Random random)
         {
-            int playerOne = 1;
-            int playerTwo = 2;
+            int player1Nr = 1;
+            int player2Nr = 2;
 
-            int winner = random.Next(1, 3);
+            int winnerNr = random.Next(1, 3);
 
-            points = playerOne == winner ? points++ : points--;
-            player2.points = playerTwo == winner ? +1 : -1;
-
-            Console.WriteLine(points);
-            Console.WriteLine(player2.points);
+            points = player1Nr == winnerNr ? points += 1 : points -= 1;
+            player2.points = player2Nr == winnerNr ? player2.points += 1 : player2.points -= 1;
         }
 
         public void ShowNameAndPoints()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine($"{playerName}: {points}");
         }
     }
 }

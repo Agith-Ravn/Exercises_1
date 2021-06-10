@@ -34,10 +34,10 @@ namespace Oppgave15
                 player1.Play(player2, random);
             }
 
-            //foreach (var player in players)
-            //{
-            //    player.ShowNameAndPoints();
-            //}
+            foreach (var player in players)
+            {
+                player.ShowNameAndPoints();
+            }
 
 
         }
