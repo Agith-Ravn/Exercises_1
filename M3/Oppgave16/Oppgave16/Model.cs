@@ -26,7 +26,7 @@ namespace Oppgave16
             var romF = new Rom { navn = "F", innhold = new string[0], vunnet = true };
             rom = new[] { romA, romB, romC, romD, romE, romF, };
 
-            //???
+            //????
             spiller.rom = rom.FirstOrDefault(r => r.start);
             dører = new[]
             {
