@@ -15,9 +15,10 @@ namespace Oppgave16
 
         public Model()
         {
+            //Lager spiller objekt
             spiller = new Spiller();
 
-            //Lager navn, innhold, start, vunnet inni rom objecter
+            //Lager navn, innhold, start, vunnet inni rom objekter
             var romA = new Rom { navn = "A", innhold = new[] { "rød nøkkel" }, start = true };
             var romB = new Rom { navn = "B", innhold = new[] { "grønn nøkkel" } };
             var romC = new Rom { navn = "C", innhold = new[] { "hvit nøkkel" } };
@@ -26,7 +27,7 @@ namespace Oppgave16
             var romF = new Rom { navn = "F", innhold = new string[0], vunnet = true };
             rom = new[] { romA, romB, romC, romD, romE, romF, };
 
-            //????
+            //?????
             spiller.rom = rom.FirstOrDefault(r => r.start);
             dører = new[]
             {
@@ -38,9 +39,13 @@ namespace Oppgave16
             };
         }
 
+
         public string doors()
         {
+            //Henter hvilken rom spiller er i
             var rom = spiller.rom;
+
+            //Finner 
             var dørerIRommet = dører.Where(d => d.A == rom || d.B == rom);
 
             var txt = "";

@@ -8,6 +8,7 @@ namespace Oppgave16
 
         static void Main(string[] args)
         {
+            //Henter model object
             model = new Model();
             while (true)
             {

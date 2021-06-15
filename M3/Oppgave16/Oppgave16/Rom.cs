@@ -8,7 +8,7 @@
         public bool start;
         public bool vunnet;
 
-        //
+        //Henter innhold fra rom
         public string hentInnhold()
         {
             return string.Join("\n", innhold);
