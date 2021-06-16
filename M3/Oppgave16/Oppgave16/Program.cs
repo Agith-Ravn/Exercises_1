@@ -10,13 +10,18 @@ namespace Oppgave16
         {
             //Henter model object
             model = new Model();
+
+            //looper igjennom dette til det kommer en break
             while (true)
             {
+                //Updaterer view
                 UpdateView();
+
+                //Spør om kommando
                 Console.Write("Angi kommando: ");
+
+                //Lagrer det du skriver
                 var command = Console.ReadLine();
-                //if(command.StartsWith("Låse opp")) 
-                //if(command.StartsWith("Gå gjennom")) 
             }
         }
 
