@@ -11,7 +11,7 @@ namespace Oppgave18._2
             var betsText = Console.ReadLine();
             var twelveMatches = new TwelveMatches(betsText);
 
-            while (true)
+            while (twelveMatches.IsRunning == true)
             {
                 Console.Write("Skriv kampnr. 1-12 for scoring eller X for alle kampene er ferdige\r\nAngi kommando: ");
                 var command = Console.ReadLine();
@@ -20,10 +20,9 @@ namespace Oppgave18._2
                 Console.Write($"Scoring i kamp {matchNo}. \r\nSkriv H for hjemmelag eller B for bortelag: ");
                 var team = Console.ReadLine();
                 twelveMatches.AddGoal(matchNo, team);
-                twelveMatches.ShowAllScores();
-                twelveMatches.ShowCorrectCount();
-
             }
+            twelveMatches.ShowAllScores();
+            twelveMatches.ShowCorrectCount();
 
         }
     }
