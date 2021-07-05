@@ -6,4 +6,10 @@
     <RootNamespace>Oppgave18._5</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="startlist.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

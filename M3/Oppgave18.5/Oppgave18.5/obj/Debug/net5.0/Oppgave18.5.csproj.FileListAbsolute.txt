@@ -1,0 +1,5 @@
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave18.5\Oppgave18.5\obj\Debug\net5.0\Oppgave18.5.csprojAssemblyReference.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave18.5\Oppgave18.5\obj\Debug\net5.0\Oppgave18.5.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave18.5\Oppgave18.5\obj\Debug\net5.0\Oppgave18.5.AssemblyInfoInputs.cache
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave18.5\Oppgave18.5\obj\Debug\net5.0\Oppgave18.5.AssemblyInfo.cs
+C:\Users\Visjon\Documents\GitHub\GET_Academy\M3\Oppgave18.5\Oppgave18.5\obj\Debug\net5.0\Oppgave18.5.csproj.CoreCompileInputs.cache
