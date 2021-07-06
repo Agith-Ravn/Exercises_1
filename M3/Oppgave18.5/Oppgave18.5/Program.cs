@@ -8,16 +8,21 @@ namespace Oppgave18._5
     {
         static void Main(string[] args)
         {
-            var list = new List<Regisration>();
+            var model = new RegistrationModel();
 
             using (var file = new StreamReader("startlist.csv"))
             {
                 string line;
                 while ((line = file.ReadLine()) != null)
                 {
-                    var registration = new Regisration(line);
-                    list.Add(registration);
+                    model.HandleLine(line);
                 }
+            }
+
+            Console.Write("Alle klubbene");
+            foreach (var club in model.Clubs)
+            {
+                Console.WriteLine(" " + club.ClubName);
             }
         }
     }

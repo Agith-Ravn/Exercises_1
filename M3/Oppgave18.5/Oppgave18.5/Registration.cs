@@ -12,25 +12,26 @@ namespace Oppgave18._5
         public string Group { get; set; }
         public string Class { get; set; }
 
+        //Legge til fra csv fil
         public Registration(string fileLine)
         {
             var part = fileLine.Split(",");
-            StartNumber = Convert.ToInt32(part[0]);
-            Name = part[1];
-            Club = part[2];
-            Nationality = part[3];
-            Group = part[4];
-            Class = part[5];
+            StartNumber = Convert.ToInt32("0" + part[0].Trim('"'));
+            Name = part[1].Trim('"');
+            Club = part[2].Trim('"');
+            Nationality = part[3].Trim('"');
+            Group = part[4].Trim('"');
+            Class = part[5].Trim('"');
         }
 
-        //public Registration(int startNumber, string name, string club, string nationality, string @group, string @class)
-        //{
-        //    StartNumber = startNumber;
-        //    Name = name;
-        //    Club = club;
-        //    Nationality = nationality;
-        //    Group = @group;
-        //    Class = @class;
-        //}
+        public Registration(int startNumber, string name, string club, string nationality, string @group, string @class)
+        {
+            StartNumber = startNumber;
+            Name = name;
+            Club = club;
+            Nationality = nationality;
+            Group = @group;
+            Class = @class;
+        }
     }
 }
